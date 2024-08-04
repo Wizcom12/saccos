@@ -46,27 +46,27 @@
             <div class="slideshow-container">
                 <h1 class="welcome-heading">Welcome to BUSAIGA SACCO</h1>
                 <div class="mySlides fade">
-                    <img src="office.jpg" alt="Slide 1" loading="lazy">
+                    <img src="office.jpg" alt="Slide 1" class="carousel-img">
                     <div class="text">Welcome to BUSAIGA SACCO</div>
                 </div>
                 <div class="mySlides fade">
-                    <img src="agric.jpg" alt="Slide 2" loading="lazy">
+                    <img src="agric.jpg" alt="Slide 2" class="carousel-img">
                     <div class="text">Your Agriculture partner</div>
                 </div>
                 <div class="mySlides fade">
-                    <img src="school.jpg" alt="Slide 3" loading="lazy">
+                    <img src="school.jpg" alt="Slide 3" class="carousel-img">
                     <div class="text">Empowering Education</div>
                 </div>
                 <div class="mySlides fade">
-                    <img src="boda3.jpg" alt="Slide 4" loading="lazy">
+                    <img src="boda3.jpg" alt="Slide 4" class="carousel-img">
                     <div class="text">Ride as you Pay</div>
                 </div>
                 <div class="mySlides fade">
-                    <img src="emergency.jpg" alt="Slide 5" loading="lazy">
+                    <img src="emergency.jpg" alt="Slide 5" class="carousel-img">
                     <div class="text">Solve Your uncertainty</div>
                 </div>
                 <div class="mySlides fade">
-                    <img src="home.jpg" alt="Slide 5" loading="lazy">
+                    <img src="home.jpg" alt="Slide 6" class="carousel-img">
                     <div class="text">Improve your Home</div>
                 </div>
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -120,6 +120,23 @@
                 document.querySelector('.dropdown-content').classList.remove('active');
             });
         });
+
+        // Slideshow functionality
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.querySelectorAll(".mySlides");
+            slides.forEach(slide => slide.style.display = "none");
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 5000); // Change image every 5 seconds
+        }
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
     </script>
 </body>
 </html>
