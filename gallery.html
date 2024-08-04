@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Busaiga Sacco - Gallery</title>
+  <style>/* styles.css */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #2c3e50;
+      color: #ecf0f1;
+    }
+    
+    header {
+            background-color: #004080; /* Match header background color */
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: relative; /* Ensure relative positioning for absolute children */
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+            border-radius: 50%; /* Match logo border radius */
+            
+            
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            background-color: #004080;
+            width: 250px;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .sidebar.active {
+            transform: translateX(0);
+        }
+
+        .sidebar-content {
+            padding-top: 60px; /* Adjusted padding top */
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #004080;
+        }
+
+        .active {
+            background-color: #004080;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .menu-icon {
+                display: block; /* Show on smaller screens */
+                cursor: pointer;
+                position: absolute;
+                top: 40%;
+                right: 20px;
+                z-index: 1001; /* Ensure it's above the sidebar */
+            }
+
+            .menu-icon .bar {
+                width: 25px;
+                height: 3px;
+                background-color: white;
+                margin: 8px 0;
+            }
+
+            nav {
+                display: none; /* Hide nav links on small screens initially */
+            }
+
+            .sidebar {
+                position: fixed;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                background-color: #004080;
+                width: 250px;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 1000;
+                display: none; /* Hide sidebar by default */
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+                display: block; /* Show sidebar when active */
+            }
+
+            .sidebar-content {
+                padding-top: 60px; /* Adjusted padding top */
+            }
+
+            .sidebar a {
+                color: white;
+                text-decoration: none;
+                display: block;
+                padding: 16px;
+                transition: background-color 0.3s;
+            }
+
+            .sidebar a:hover {
+                background-color: #004080;
+            }
+
+            .active {
+                background-color: #004080;
+            }
+        }
+
+        @media (min-width: 769px) {
+            nav {
+                display: flex; /* Display nav on large screens */
+            }
+
+            .sidebar {
+                display: none; /* Hide sidebar on large screens */
+            }
+        }
+
+    section {
+      padding: 20px;
+    }
+    
+    #gallery {
+      padding: 20px;
+      background-color: white;
+    }
+    
+    #gallery h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+    }
+    
+    .gallery-container img {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid #34495e;
+      border-radius: 5px;
+    }
+    
+    footer {
+      background-color: #004080;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+    }
+    
+    .contact-info h3 {
+      margin-bottom: 10px;
+    }
+    
+    .contact-info p {
+      margin: 5px 0;
+    }
+    
+    .contact-info a {
+      color: #1abc9c;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+    
+    .contact-info a:hover {
+      border-bottom: 1px solid #1abc9c;
+    }
+    
+    .contact-info a.twitter-link {
+      color: #1da1f2;
+    }
+    
+    .contact-info a.twitter-link:hover {
+      border-bottom: none;
+    }
+    h1 {
+      color: #004080;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.jpg" alt="BUSAIGA SACCO Logo" class="logo">
+    <div class="container">
+        
+        <!-- Menu Icon for Small Screens -->
+        <div class="menu-icon" onclick="toggleSidebar()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About Us</a>
+            <a href="savings.html">Savings Products</a>
+            <a href="loans.html">Loan Products</a>
+             <a href="service-centers.html">Service Centers</a>
+            <a href="mobile.html">Mobile Transactions</a>
+            <a href="contact.html">Contact Us</a>
+           
+        </nav>
+    </div>
+</header>
+
+<!-- Sidebar -->
+<nav class="sidebar">
+    <div class="sidebar-content">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About Us</a>
+        <a href="savings.html">Savings Products</a>
+        <a href="loans.html">Loan Products</a>
+       <a href="service-centers.html">Service Centers</a>
+        <a href="mobile.html">Mobile Transactions</a>
+        <a href="contact.html">Contact Us</a>
+        
+    </div>
+</nav>
+
+
+  <!-- Gallery Section -->
+  <section id="gallery">
+    <h1>Gallery</h1>
+    <div class="gallery-container">
+      <img src="1.jpg" loading="lazy" alt="Image 1">
+      <img src="2.jpg" loading="lazy" alt="Image 2">
+      <img src="3.jpg" loading="lazy" alt="Image 3">
+      <img src="4.jpg" loading="lazy" alt="Image 4">
+      <img src="5.jpg" loading="lazy" alt="Image 5">
+      <img src="6.jpg" loading="lazy" alt="Image 6">
+      <img src="7.jpg" loading="lazy" alt="Image 7">
+      <img src="8.jpg" loading="lazy" alt="Image 8">
+      <img src="9.jpg" loading="lazy" alt="Image 9">
+      <img src="10.jpg" loading="lazy" alt="Image 10">
+      <img src="11.jpg" loading="lazy" alt="Image 11">
+      <img src="12.jpg" loading="lazy" alt="Image 12">
+      <img src="13.jpg" loading="lazy" alt="Image 13">
+      <img src="14.jpg" loading="lazy" alt="Image 14">
+      <img src="15.jpg" loading="lazy" alt="Image 15">
+      <img src="16.jpg" loading="lazy" alt="Image 16">
+      <img src="17.jpg" loading="lazy" alt="Image 17">
+      <img src="18.jpg" loading="lazy" alt="Image 18">
+      <img src="19.jpg" loading="lazy" alt="Image 19">
+      <img src="20.jpg" loading="lazy" alt="Image 20">
+      <img src="21.jpg" loading="lazy" alt="Image 21">
+      <img src="22.jpg" loading="lazy" alt="Image 22">
+      <img src="23.jpg" loading="lazy" alt="Image 23">
+      <img src="24.jpg" loading="lazy" alt="Image 24">
+      <img src="25.jpg" loading="lazy" alt="Image 25">
+      <img src="26.jpg" loading="lazy" alt="Image 26">
+      <img src="27.jpg" loading="lazy" alt="Image 27">
+      <img src="28.jpg" loading="lazy" alt="Image 28">
+      <img src="29.jpg" loading="lazy" alt="Image 29">
+      <img src="30.jpg" loading="lazy" alt="Image 30">
+      <img src="31.jpg" loading="lazy" alt="Image 31">
+      <img src="32.jpg" loading="lazy" alt="Image 32">
+      <img src="33.jpg" loading="lazy" alt="Image 33">
+      <img src="34.jpg" loading="lazy" alt="Image 34">
+      <img src="35.jpg" loading="lazy" alt="Image 35">
+      <img src="36.jpg" loading="lazy" alt="Image 36">
+      <img src="37.jpg" loading="lazy" alt="Image 37">
+      <img src="38.jpg" loading="lazy" alt="Image 38">
+      <img src="39.jpg" loading="lazy" alt="Image 39">
+      <img src="40.jpg" loading="lazy" alt="Image 40">
+      <img src="41.jpg" loading="lazy" alt="Image 41">
+      <img src="42.jpg" loading="lazy" alt="Image 42">
+      <img src="43.jpg" loading="lazy" alt="Image 43">
+      <img src="44.jpg" loading="lazy" alt="Image 44">
+      <img src="45.jpg" loading="lazy" alt="Image 45">
+      <img src="46.jpg" loading="lazy" alt="Image 46">
+      <img src="47.jpg" loading="lazy" alt="Image 47">
+      <img src="48.jpg" loading="lazy" alt="Image 48">
+      <img src="49.jpg" loading="lazy" alt="Image 49">
+      <img src="50.jpg" loading="lazy" alt="Image 50">
+      <img src="51.jpg" loading="lazy" alt="Image 51">
+      <img src="52.jpg" loading="lazy" alt="Image 52">
+      <img src="53.jpg" loading="lazy" alt="Image 53">
+      <img src="54.jpg" loading="lazy" alt="Image 54">
+      <img src="55.jpg" loading="lazy" alt="Image 55">
+      <img src="56.jpg" loading="lazy" alt="Image 56">
+      <img src="57.jpg" loading="lazy" alt="Image 57">
+      <img src="58.jpg" loading="lazy" alt="Image 58">
+      <img src="59.jpg" loading="lazy" alt="Image 59">
+      <img src="60.jpg" loading="lazy" alt="Image 60">
+      <img src="61.jpg" loading="lazy" alt="Image 61">
+      <img src="62.jpg" loading="lazy" alt="Image 62">
+      <img src="63.jpg" loading="lazy" alt="Image 63">
+      <img src="64.jpg" loading="lazy" alt="Image 64">
+      <img src="65.jpg" loading="lazy" alt="Image 65">
+      <img src="66.jpg" loading="lazy" alt="Image 66">
+      <img src="67.jpg" loading="lazy" alt="Image 67">
+      <img src="68.jpg" loading="lazy" alt="Image 68">
+      <img src="69.jpg" loading="lazy" alt="Image 69">
+      <img src="70.jpg" loading="lazy" alt="Image 70">
+      <img src="71.jpg" loading="lazy" alt="Image 71">
+      <img src="72.jpg" loading="lazy" alt="Image 72">
+      <img src="73.jpg" loading="lazy" alt="Image 73">
+      <img src="74.jpg" loading="lazy" alt="Image 74">
+      <img src="75.jpg" loading="lazy" alt="Image 75">
+      <img src="76.jpg" loading="lazy" alt="Image 76">
+      <img src="77.jpg" loading="lazy" alt="Image 77">
+      <img src="78.jpg" loading="lazy" alt="Image 78">
+      <img src="79.jpg" loading="lazy" alt="Image 79">
+      <img src="80.jpg" loading="lazy" alt="Image 80">
+      <img src="81.jpg" loading="lazy" alt="Image 81">
+      <img src="82.jpg" loading="lazy" alt="Image 82">
+      <img src="83.jpg" loading="lazy" alt="Image 83">
+      <img src="84.jpg" loading="lazy" alt="Image 84">
+      <img src="85.jpg" loading="lazy" alt="Image 85">
+      <img src="86.jpg" loading="lazy" alt="Image 86">
+      <img src="87.jpg" loading="lazy" alt="Image 87">
+      
+      <!-- Add more images as needed -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="contact-info">
+      <h3>Contact Info</h3>
+      
+      <p>
+        <a href="tel:+256393254703">Phone: +256393254703</a>
+      </p>
+      <p>
+        <a href="https://wa.me/+256779491167" target="_blank">Whatsapp Busaiga SACCO</a>
+      </p>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2024 Busaiga Sacco. All rights reserved.</p>
+      <p>
+        <a style="color: white; font-weight: bolder; font-size: 12px; text-decoration: none;" href="https://api.whatsapp.com/send?phone=+779491167" target="_blank">Designed by: Wizcom Developers</a>
+      </p>
+      
+    </div>
+  </footer>
+
+  <script>
+    function toggleSidebar() {
+        document.querySelector('.sidebar').classList.toggle('active');
+    }
+</script>
+</body>
+</html>

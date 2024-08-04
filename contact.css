@@ -1,0 +1,260 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif; /* Match font family with loans.css */
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  color: #002060; /* Match heading color */
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+
+header {
+  background-color: #004080; /* Match header background color */
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: relative; /* Ensure relative positioning for absolute children */
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+  border-radius: 50%; /* Match logo border radius */
+  
+  
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #004080;
+  width: 250px;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar.active {
+  transform: translateX(0);
+}
+
+.sidebar-content {
+  padding-top: 60px; /* Adjusted padding top */
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 16px;
+  transition: background-color 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #004080;
+}
+
+.active {
+  background-color: #004080;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .menu-icon {
+      display: block; /* Show on smaller screens */
+      cursor: pointer;
+      position: absolute;
+      top: 40%;
+      right: 20px;
+      z-index: 1001; /* Ensure it's above the sidebar */
+  }
+
+  .menu-icon .bar {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 8px 0;
+  }
+
+  nav {
+      display: none; /* Hide nav links on small screens initially */
+  }
+
+  .sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      background-color: #004080;
+      width: 250px;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      z-index: 1000;
+      display: none; /* Hide sidebar by default */
+  }
+
+  .sidebar.active {
+      transform: translateX(0);
+      display: block; /* Show sidebar when active */
+  }
+
+  .sidebar-content {
+      padding-top: 60px; /* Adjusted padding top */
+  }
+
+  .sidebar a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 16px;
+      transition: background-color 0.3s;
+  }
+
+  .sidebar a:hover {
+      background-color: #004080;
+  }
+
+  .active {
+      background-color: #004080;
+  }
+}
+
+@media (min-width: 769px) {
+  nav {
+      display: flex; /* Display nav on large screens */
+  }
+
+  .sidebar {
+      display: none; /* Hide sidebar on large screens */
+  }
+}
+
+/* Main Styles */
+main {
+  padding-top: 50px;
+  flex: 1;
+  background-color: #f0f0f0;
+}
+
+section {
+  margin-bottom: 50px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+/* Form Styles */
+form {
+  margin-top: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button[type="submit"] {
+  background-color: #004080; /* Match button background color */
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #002060; /* Match button hover background color */
+}
+
+/* Footer Styles */
+footer {
+  background-color: #002060;
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+footer a {
+  color: #1e90ff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (min-width: 769px) {
+  /* Show dropdown content directly in the nav bar on large screens */
+  nav .dropdown-content {
+      display: flex;
+      position: static;
+      background-color: transparent;
+      box-shadow: none;
+      min-width: auto;
+  }
+  
+  nav .dropdown-content a {
+      padding: 16px;
+      color: white;
+      background-color: transparent;
+      border: none;
+      display: inline-block;
+  }
+
+  .dropdown:hover .dropdown-content {
+      display: flex;
+  }
+}

@@ -1,0 +1,317 @@
+   
+    
+/* Reset and Base Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  color: #002060; /* Match heading color */
+}
+
+
+
+/* Header Styles */
+header {
+  background-color: #004080; /* Match header background color */
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: relative; /* Ensure relative positioning for absolute children */
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+  border-radius: 50%; /* Match logo border radius */
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+
+
+/* Footer Styles */
+footer {
+  background-color: #002060;
+  color: white;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+footer a {
+  color: #1e90ff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #004080;
+  width: 250px;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar.active {
+  transform: translateX(0);
+}
+
+.sidebar-content {
+  padding-top: 60px; /* Adjusted padding top */
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 16px;
+  transition: background-color 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #004080;
+}
+
+.active {
+  background-color: #004080;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .menu-icon {
+      display: block; /* Show on smaller screens */
+      cursor: pointer;
+      position: absolute;
+      top: 40%;
+      right: 20px;
+      z-index: 1001; /* Ensure it's above the sidebar */
+  }
+
+  .menu-icon .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 8px 0;
+    
+  }
+
+  nav {
+      display: none; /* Hide nav links on small screens initially */
+  }
+
+  .sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      background-color: #004080;
+      width: 250px;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      z-index: 1000;
+      display: none; /* Hide sidebar by default */
+  }
+
+  .sidebar.active {
+      transform: translateX(0);
+      display: block; /* Show sidebar when active */
+  }
+
+  .sidebar-content {
+      padding-top: 60px; /* Adjusted padding top */
+  }
+
+  .sidebar a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 16px;
+      transition: background-color 0.3s;
+  }
+
+  .sidebar a:hover {
+      background-color: #004080;
+  }
+
+  .active {
+      background-color: #004080;
+  }
+}
+
+@media (min-width: 769px) {
+  nav {
+      display: flex; /* Display nav on large screens */
+  }
+
+  .sidebar {
+      display: none; /* Hide sidebar on large screens */
+  }
+}
+
+
+.container {
+  max-width: 1000px;
+  padding: 20px;
+  align-items: left;
+}
+
+/* Main Content Styles */
+main {
+  padding-top: 0; /* No padding needed */
+  flex: 1;
+  background-color: #f0f0f0; /* Example background color for main content */
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 50px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #004080;
+  width: 250px;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar.active {
+  transform: translateX(0);
+}
+
+.sidebar-content {
+  padding-top: 60px; /* Adjusted padding top */
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 16px;
+  transition: background-color 0.3s;
+}
+
+.sidebar a:hover {
+  background-color: #004080;
+}
+
+.active {
+  background-color: #004080;
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  overflow-x: auto; /* Enable horizontal scroll on smaller screens */
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #004080; /* Header background color */
+  color: white;
+}
+
+/* Alternate row colors for better readability */
+tr:nth-child(even) {
+  background-color: #f2f2f2; /* Light gray */
+}
+
+/* Colors for header cells */
+th {
+  background-color: #004080; /* Dark blue */
+  color: white;
+}
+
+/* Colors for data cells */
+td {
+  background-color: #ffffff; /* White */
+}
+/* Styling for Mastulla Kusemererwa's image */
+.management img {
+    width: 100%; /* Ensures the image fills its container */
+    max-width: 300px; /* Example maximum width */
+    border-radius: 8px; /* Rounded corners for aesthetics */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+    margin-bottom: 20px; /* Optional: Creates space below the image */
+}
+
+/* Styling for CEO images */
+.images-section img {
+    width: 100%; /* Ensures the image fills its container */
+    max-width: 300px; /* Example maximum width */
+    border-radius: 8px; /* Rounded corners for aesthetics */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+    margin-bottom: 20px; /* Optional: Creates space below the image */
+}
+
+/* Optional: Center the images and add space around them */
+.images-section div {
+    text-align: center; /* Centers the images */
+    margin-bottom: 40px; /* Creates space between image sections */
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap; /* Prevent text wrapping */
+  }
+
+  th, td {
+    min-width: 120px;
+  }
+}
