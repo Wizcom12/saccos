@@ -4,225 +4,278 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BUSAIGA SACCO - About Us</title>
-    
-    2 <Style>
-    
+    <style>
     /* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-}
-
-/* Layout and Container */
-.container {
-    width: 90%;
-    margin: auto;
-    max-width: 1200px;
-}
-
-/* Header Styling */
-header {
-    background-color: #0275d8;
-    color: white;
-    padding: 1rem 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-header .logo {
-    width: 150px;
-    float: left;
-}
-
-header nav {
-    float: right;
-}
-
-header nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: bold;
-    font-size: 16px;
-    transition: color 0.3s ease;
-}
-
-header nav a:hover {
-    color: #f4f4f4;
-}
-
-/* Menu Icon for mobile */
-.menu-icon {
-    display: none;
-    float: right;
-    cursor: pointer;
-}
-
-.menu-icon .bar {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 5px 0;
-}
-
-/* Main Section Styling */
-main {
-    background-color: white;
-    padding: 2rem;
-    margin: 20px 0;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-main h1, main h2 {
-    color: #0275d8;
-}
-
-main p {
-    font-size: 18px;
-    margin-bottom: 1.5rem;
-}
-
-main ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-main ul li {
-    font-size: 18px;
-    background-color: #e9ecef;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-left: 5px solid #0275d8;
-    border-radius: 5px;
-}
-
-/* Section Styling */
-section {
-    margin-bottom: 2rem;
-}
-
-button {
-    background-color: #0275d8;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #025aa5;
-}
-
-/* Modal Styling */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 10;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-    background-color: white;
-    margin: 10% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover, .close:focus {
-    color: #333;
-}
-
-/* Footer Styling */
-footer {
-    background-color: #0275d8;
-    color: white;
-    padding: 2rem 0;
-    text-align: center;
-    margin-top: 2rem;
-}
-
-footer p {
-    margin-bottom: 0.5rem;
-}
-
-footer a {
-    color: #ffcc00;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-footer a:hover {
-    color: #ffc107;
-}
-
-/* Responsive Layout for Mobile */
-@media (max-width: 768px) {
-    header nav {
-        display: none;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
 
-    .menu-icon {
-        display: block;
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+        line-height: 1.6;
+        background-color: #f4f4f4;
     }
 
-    .logo {
-        float: none;
-        display: block;
-        margin: auto;
-    }
-
-    main {
-        padding: 1rem;
-    }
-
+    /* Layout and Container */
     .container {
+        width: 90%;
+        margin: auto;
+        max-width: 1200px;
+    }
+
+    /* Header Styling */
+    header {
+        background-color: #0275d8;
+        color: white;
+        padding: 1rem 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+
+    header .logo {
+        width: 150px;
+        float: left;
+    }
+
+    header nav {
+        float: right;
+    }
+
+    header nav a {
+        color: white;
+        text-decoration: none;
+        margin-left: 20px;
+        font-weight: bold;
+        font-size: 16px;
+        transition: color 0.3s ease;
+    }
+
+    header nav a:hover {
+        color: #f4f4f4;
+    }
+
+    /* Menu Icon for mobile */
+    .menu-icon {
+        display: none;
+        float: right;
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+    .menu-icon .bar {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 5px 0;
+        transition: 0.4s;
+    }
+
+    /* Rotate first bar */
+    .change .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    /* Fade out the second bar */
+    .change .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    /* Rotate last bar */
+    .change .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    /* Sidebar Styling */
+    .sidebar {
+        height: 75%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        background-color: white ;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 40px;
+        border-radius: 4px;
+    }
+
+    .sidebar a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 20px;
+        color: #ffcc00;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+        color: #f1f1f1;
+    }
+
+    .sidebar .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+    /* Main Section Styling */
+    main {
+        background-color: white;
+        padding: 2rem;
+        margin: 20px 0;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    main h1, main h2 {
+        color: #0275d8;
+    }
+
+    main p {
+        font-size: 18px;
+        margin-bottom: 1.5rem;
+    }
+
+    main ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    main ul li {
+        font-size: 18px;
+        background-color: #e9ecef;
+        margin-bottom: 10px;
+        padding: 10px;
+        border-left: 5px solid #0275d8;
+        border-radius: 5px;
+    }
+
+    /* Section Styling */
+    section {
+        margin-bottom: 2rem;
+    }
+
+    button {
+        background-color: #0275d8;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #025aa5;
+    }
+
+    /* Modal Styling */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
         width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
     }
 
     .modal-content {
-        width: 90%;
+        background-color: white;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 600px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-}
 
-/* Utility Classes */
-.text-center {
-    text-align: center;
-}
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
 
-.text-left {
-    text-align: left;
-}
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
 
-    
+    /* Footer Styling */
+    footer {
+        background-color: #0275d8;
+        color: white;
+        padding: 2rem 0;
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    footer p {
+        margin-bottom: 0.5rem;
+    }
+
+    footer a {
+        color: #ffcc00;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+        color: #ffc107;
+    }
+
+    /* Responsive Layout */
+    @media screen and (max-width: 768px) {
+        header nav {
+            display: none;
+        }
+
+        .menu-icon {
+            display: block;
+        }
+
+        .logo {
+            float: none;
+            display: block;
+            margin: auto;
+        }
+
+        main {
+            padding: 1rem;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        .modal-content {
+            width: 90%;
+        }
+    }
+
+    /* Utility Classes */
+    .text-center {
+        text-align: center;
+    }
+
+    .text-left {
+        text-align: left;
+    }
     </style>
 </head>
 <body>
@@ -248,17 +301,16 @@ footer a:hover {
     </header>
 
     <!-- Sidebar -->
-    <nav class="sidebar">
-        <div class="sidebar-content">
-            <a href="index.html">Home</a>
-            <a href="savings.html">Savings Products</a>
-            <a href="loans.html">Loan Products</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="mobile.html">Mobile Transactions</a>
-            <a href="contact.html">Contact Us</a>
-            <a href="service-centers.html">Service Centers</a>
-        </div>
-    </nav>
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="savings.html">Savings Products</a>
+        <a href="loans.html">Loan Products</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="mobile.html">Mobile Transactions</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="service-centers.html">Service Centers</a>
+    </div>
 
     <main>
         <section id="background">
@@ -304,15 +356,56 @@ footer a:hover {
         </div>
     </footer>
 
-    <script>
-        function toggleSidebar() {
-            document.querySelector('.sidebar').classList.toggle('active');
-        }
+    <!-- Leadership Details Modal -->
+    <div id="leadershipModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Board of Directors</h2>
+            <ul>
+                <li>Mr. Waako Robert - Chairman</li>
+                <li>Mr. Kalemera Hannington - Vice Chairman</li>
+                <li>Ms. Kabubwinga Juliet - Secretary</li>
+                <li>Mr. Muhumuza Patrick - Treasurer</li>
+                <li>Ms. Birungi Agnes - Member</li>
+            </ul>
+        </div>
+    </div>
 
-        function showLeadershipDetails() {
-            alert("Board of Directors: Mr. Waako Robert, Mr. Kalemera Hannington, Ms. Kabubwinga Juliet...");
+    <script>
+    function toggleSidebar() {
+        var sidebar = document.getElementById("mySidebar");
+        var menuIcon = document.querySelector(".menu-icon");
+        if (sidebar.style.width === "250px") {
+            sidebar.style.width = "0";
+            menuIcon.classList.remove("change");
+        } else {
+            sidebar.style.width = "250px";
+            menuIcon.classList.add("change");
         }
+    }
+
+    // Get the modal
+    var modal = document.getElementById("leadershipModal");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal
+    function showLeadershipDetails() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
     </script>
 </body>
-</html>
-                        
+    </html>
