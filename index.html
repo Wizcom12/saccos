@@ -3,410 +3,354 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BUSAIGA SACCO</title>
+    <title>BUSAIGA SACCO - About Us</title>
     <style>
-/* Reset and Base Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #f0f0f0;
-    color: #333;
-}
+    /* General Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-/* Header Styles */
-header {
-    background-color: #004080;
-    color: white;
-    padding: 1rem 0;
-}
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+        line-height: 1.6;
+        background-color: #f4f4f4;
+    }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+    /* Layout and Container */
+    .container {
+        width: 90%;
+        margin: auto;
+        max-width: 1200px;
+    }
 
-.logo {
-    width: 120px; /* Moderate logo size */
-    border-radius: 50%;
-}
+    /* Header Styling */
+    header {
+        background-color: white;
+        color: gold;
+        padding: 1rem 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
 
-/* Navigation Styles */
-nav {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    width: 100%;
-}
+    header .logo {
+        width: 150px;
+        float: left;
+        border-radius: 50%;
+    }
 
-.menu-icon {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
+    header nav {
+        float: right;
+    }
 
-.menu-icon .bar {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 4px 0;
-}
+    header nav a {
+        color: gold;
+        text-decoration: none;
+        margin-left: 20px;
+        font-weight: bold;
+        font-size: 16px;
+        transition: color 0.3s ease;
+    }
 
-.nav-links {
-    display: flex;
-    gap: 1rem;
-}
+    header nav a:hover {
+        color: #0275d8;
+    }
 
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    padding: 14px 16px;
-    border-bottom: 2px solid transparent;
-    transition: border-bottom-color 0.3s;
-}
-
-.nav-links a:hover {
-    border-bottom-color: #fff;
-}
-
-/* Dropdown (Sidebar) Styles */
-.dropdown {
-    display: none; /* Hide dropdown on large screens */
-}
-
-.dropdown-content {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 250px;
-    height: 100%;
-    background-color: #004080;
-    z-index: 1000;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-top: 60px;
-    transition: left 0.3s ease;
-}
-
-.dropdown-content.active {
-    display: flex;
-    left: 0;
-}
-
-.dropdown-content a {
-    color: white;
-    padding: 14px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-    width: 100%;
-    transition: background-color 0.3s;
-}
-
-.dropdown-content a:hover {
-    background-color: #0056b3;
-}
-
-/* Main Content Styles */
-main {
-    padding: 2rem 0;
-}
-
-/* Slideshow Styles */
-.banner {
-    position: relative;
-    max-width: 100%;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    padding: 1rem 0;
-    box-sizing: border-box;
-    background-color: #fff;
-}
-
-.slideshow-container {
-    position: relative;
-    max-width: 100%;
-    margin: auto;
-}
-
-.mySlides {
-    display: none;
-    text-align: center;
-}
-
-.carousel-img {
-    max-width: 100%;
-    max-height: 400px;
-    width: auto;
-    height: auto;
-    object-fit: cover; /* Ensures all images have a uniform size */
-}
-
-.text {
-    color: white;
-    font-size: 1.5rem;
-    padding: 1rem;
-    position: absolute;
-    bottom: 8px;
-    width: 100%;
-    text-align: center;
-    font-weight: bold;
-    background: rgba(0, 0, 0, 0.5);
-    box-sizing: border-box;
-}
-
-.prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -22px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-}
-
-.prev:hover, .next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* Introduction Section Styles */
-.intro {
-    padding: 1rem 0;
-    text-align: center;
-    background-color: #fff;
-}
-
-/* Highlights Section Styles */
-.highlights {
-    text-align: center;
-    padding: 2rem 0;
-    background-color: #f7f7f7;
-}
-
-.highlight-carousel {
-    max-width: 100%;
-    overflow-x: auto;
-    white-space: nowrap;
-}
-
-.highlight {
-    width: 300px; /* Adjust width as needed */
-    display: inline-block;
-    vertical-align: top;
-    white-space: normal;
-    margin: 0 10px; /* Adjust margin as needed */
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.highlight h2 {
-    color: #004080;
-    margin: 0 0 1rem;
-}
-
-.highlight p {
-    margin: 0 0 1rem;
-}
-
-.highlight .cta {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    background-color: #004080;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.highlight .cta:hover {
-    background-color: #002060;
-}
-
-/* Footer Styles */
-footer {
-    background-color: #002060;
-    color: white;
-    padding: 1rem 0;
-    text-align: center;
-}
-
-footer a {
-    color: #1e90ff;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
+    /* Menu Icon for mobile */
     .menu-icon {
-        display: flex;
-    }
-
-    .nav-links {
         display: none;
+        float: right;
+        cursor: pointer;
+        z-index: 1000;
     }
 
-    .dropdown {
+    .menu-icon .bar {
+        width: 25px;
+        height: 3px;
+        background-color: gold;
+        margin: 5px 0;
+        transition: 0.4s;
+        Margin-right: 15px
+    }
+
+    /* Rotate first bar */
+    .change .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    /* Fade out the second bar */
+    .change .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    /* Rotate last bar */
+    .change .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    /* Sidebar Styling */
+    .sidebar {
+        height: 75%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        background-color: white;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 40px;
+        border-radius: 4px;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    }
+
+    .sidebar a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 20px;
+        color: #ffcc00;
         display: block;
+        transition: 0.3s;
     }
 
-    .dropdown-content {
+    .sidebar a:hover {
+        color: #0275d8;
+    }
+
+    .sidebar .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+    /* Main Section Styling */
+    main {
+        background-color: white;
+        padding: 2rem;
+        margin: 60px 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    main h1, main h2 {
+        color: #0275d8;
+    }
+
+    main p {
+        font-size: 18px;
+        margin-bottom: 1.5rem;
+    }
+
+    main ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    main ul li {
+        font-size: 18px;
+        background-color: #e9ecef;
+        margin-bottom: 10px;
+        padding: 10px;
+        border-left: 5px solid #0275d8;
+        border-radius: 5px;
+    }
+
+    /* Section Styling */
+    section {
+        margin-bottom: 2rem;
+    }
+
+    button {
+        background-color: #0275d8;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #025aa5;
+    }
+
+    /* Modal Styling */
+    .modal {
         display: none;
         position: fixed;
-        top: 0;
-        left: -250px;
-        width: 250px;
-        height: 100%;
-        background-color: #004080;
         z-index: 1000;
-        flex-direction: column;
-        align-items: flex-start;
-        padding-top: 60px;
-        transition: left 0.3s ease;
-    }
-
-    .dropdown-content.active {
         left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
     }
 
-    .dropdown-content a {
-        padding: 14px 16px;
-        display: block;
+    .modal-content {
+        background-color: white;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        max-width: 600px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    /* Footer Styling */
+    footer {
+        background-color: #0275d8;
+        color: white;
+        padding: 2rem 0;
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    footer p {
+        margin-bottom: 0.5rem;
+    }
+
+    footer a {
+        color: #ffcc00;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+        color: #ffc107;
+    }
+
+    /* Responsive Layout */
+    @media screen and (max-width: 768px) {
+        header nav {
+            display: none;
+        }
+
+        .menu-icon {
+            display: block;
+        }
+
+        .logo {
+            float: none;
+            display: block;
+            margin: auto;
+        }
+
+        main {
+            padding: 1rem;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        .modal-content {
+            width: 90%;
+        }
+    }
+
+    /* Utility Classes */
+    .text-center {
+        text-align: center;
+    }
+
+    .text-left {
         text-align: left;
-        width: 100%;
     }
-
-    .highlight-carousel {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .highlight {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-}
-
     </style>
-    <script src="scripts.js" async defer></script>
 </head>
 <body>
     <header>
         <div class="container">
             <img src="logo.jpg" alt="BUSAIGA SACCO Logo" class="logo">
+            <!-- Menu Icon for Small Screens -->
+            <div class="menu-icon" onclick="toggleSidebar()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
             <nav>
-                <div class="menu-icon" onclick="toggleSidebar()">
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                </div>
-                <div class="nav-links">
-                    <a href="about.html">About Us</a>
-                    <a href="savings.html">Savings Products</a>
-                    <a href="loans.html">Loan Products</a>
-                    <a href="mobile.html">Mobile Transactions</a>
-                    <a href="service-centers.html">Service Centers</a>
-                    <a href="contact.html">Contact Us</a>
-                    <a href="gallery.html">Gallery</a>
-                </div>
-                <div class="dropdown">
-                    <div class="dropdown-content">
-                        <a href="about.html">About Us</a>
-                        <a href="savings.html">Savings Products</a>
-                        <a href="loans.html">Loan Products</a>
-                        <a href="mobile.html">Mobile Transactions</a>
-                        <a href="service-centers.html">Service Centers</a>
-                        <a href="contact.html">Contact Us</a>
-                        <a href="gallery.html">Gallery</a>
-                    </div>
-                </div>
+                <a href="index.html">Home</a>
+                <a href="savings.html">Savings Products</a>
+                <a href="loans.html">Loan Products</a>
+                <a href="service-centers.html">Service Centers</a>
+                <a href="opportunities.html">Opportunities</a>
+                <a href="events.html">Events</a>   
+                <a href="mobile.html">Mobile Transactions</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="gallery.html">Gallery</a>
             </nav>
         </div>
     </header>
 
+    <!-- Sidebar -->
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="savings.html">Savings Products</a>
+        <a href="loans.html">Loan Products</a>
+        <a href="service-centres.html">Service Centres</a>
+        <a href="mobile.html">Mobile Transactions</a>
+        <a href="opportunities.html">Opportunities</a>
+        <a href="events.html">Events</a> 
+        <a href="contact.html">Contact Us</a>
+        <a href="gallery.html">Gallery</a>
+    </div>
+
     <main>
-        <section class="banner">
-            <div class="slideshow-container">
-                <h1 class="welcome-heading">Welcome to BUSAIGA SACCO</h1>
-                <div class="mySlides fade">
-                    <img src="office.jpg" alt="Slide 1" class="carousel-img">
-                    <div class="text">Welcome to BUSAIGA SACCO</div>
-                </div>
-                <div class="mySlides fade">
-                    <img src="agric.jpg" alt="Slide 2" class="carousel-img">
-                    <div class="text">Your Agriculture partner</div>
-                </div>
-                <div class="mySlides fade">
-                    <img src="school.jpg" alt="Slide 3" class="carousel-img">
-                    <div class="text">Empowering Education</div>
-                </div>
-                <div class="mySlides fade">
-                    <img src="boda3.jpg" alt="Slide 4" class="carousel-img">
-                    <div class="text">Ride as you Pay</div>
-                </div>
-                <div class="mySlides fade">
-                    <img src="emergency.jpg" alt="Slide 5" class="carousel-img">
-                    <div class="text">Solve Your uncertainty</div>
-                </div>
-                <div class="mySlides fade">
-                    <img src="home.jpg" alt="Slide 6" class="carousel-img">
-                    <div class="text">Improve your Home</div>
-                </div>
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
-            </div>
-            <div class="intro">
-                <h2>Welcome to BUSAIGA SACCO</h2>
-                <p>BUSAIGA SACCO is your trusted financial partner, dedicated to providing a wide range of financial services to empower our members and the community. Join us and enjoy the benefits of savings, loans, and more, tailored to meet your needs.</p>
-            </div>
+        <section id="background">
+            <h1>About Us</h1>
+            <p>Busaiga SACCO started in 1991 as a small ROSCA and grew into a registered financial cooperative in 2006.</p>
+            <p>Serving communities in Western Uganda, Busaiga SACCO has evolved to provide affordable savings and credit services.</p>
+
+            <h2>Key Performance (2023)</h2>
+            <ul>
+                <li>Membership: <strong>3,789</strong></li>
+                <li>Savings: <strong >UGX 1.35 billion</strong></li>
+                <li>Loans: <strong > UGX 1.59 billion</strong></li>
+                <li>Assets: <strong > UGX 2.5 billion</strong></li>
+            </ul>
         </section>
-        
-        <section class="highlights">
-            <div class="container">
-                <div class="highlight-carousel">
-                    <div class="highlight">
-                        <h2>Savings Products</h2>
-                        <p>Flexible savings accounts to suit your needs.</p>
-                        <a href="savings.html" class="cta">Learn More</a>
-                    </div>
-                    <div class="highlight">
-                        <h2>Loan Products</h2>
-                        <p>Affordable loans with low interest rates.</p>
-                        <a href="loans.html" class="cta">Learn More</a>
-                    </div>
-                    <div class="highlight">
-                        <h2>Partnership</h2>
-                        <p>Partner with BUSAIGA SACCO and enjoy numerous benefits.</p>
-                        <a href="contact.html" class="cta">Learn More</a>
-                    </div>
-                    <!-- Add more highlights as needed -->
-                </div>
-            </div>
+
+        <section id="vision-mission">
+            <h2>Our Aim Goal</h2>
+            <p> Serving as a leading SACCO while providing affordable financial services.</p>
+
+            <h2>What we do! </h2>
+            <p>Offering sustainable financial services that empower members economically.</p>
+        </section>
+
+        <section id="leadership">
+            <h2>Leadership & Governance</h2>
+            <p>The SACCO is led by a Board of Directors, with Mr. Waako Robert as the Chairman.</p>
+            <p>For more details on leadership, <a href="#" onclick="showLeadershipDetails()">click here.</a></p>
+        </section>
+
+        <section id="management">
+            <h2>Management Team</h2>
+            <p>Managed by Mrs. Kusemererwa K. Mastulla, the SACCO has a team of 30 officials.</p>
         </section>
     </main>
 
@@ -414,37 +358,61 @@ footer a:hover {
         <div class="container">
             <p>Location: P.O. Box 980, Harugongo Subcounty, Kabarole District</p>
             <p>&copy; 2024 BUSAIGA SACCO. All rights reserved.</p>
-            <p>Powered by <a href="https://wa.me/" target="_blank">Busaiga SACCO</a> | Developed by <a href="https://wa.me/+256784829845" target="_blank">IG Digital Solutions/Wizcom</a></p>
+            <p>Powered by <a href="https://wa.me/+256784829845" target="_blank">Busaiga SACCO</a></p>
+            <p>Developed by <a href="https://wa.me/+256779491167" target="_blank">IG Digital Solutions/Wizcom</a></p>
         </div>
     </footer>
 
+    <!-- Leadership Details Modal -->
+    <div id="leadershipModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Board of Directors</h2>
+            <ul>
+                <li>Mr. Waako Robert - Chairman</li>
+                <li>Mr. Kalemera Hannington - Vice Chairman</li>
+                <li>Ms. Kabubwinga Juliet - Secretary</li>
+                <li>Mr. Muhumuza Patrick - Treasurer</li>
+                <li>Ms. Birungi Agnes - Member</li>
+            </ul>
+        </div>
+    </div>
+
     <script>
-        function toggleSidebar() {
-            document.querySelector('.dropdown-content').classList.toggle('active');
+    function toggleSidebar() {
+        var sidebar = document.getElementById("mySidebar");
+        var menuIcon = document.querySelector(".menu-icon");
+        if (sidebar.style.width === "250px") {
+            sidebar.style.width = "0";
+            menuIcon.classList.remove("change");
+        } else {
+            sidebar.style.width = "250px";
+            menuIcon.classList.add("change");
         }
+    }
 
-        document.querySelectorAll('.dropdown-content a').forEach(item => {
-            item.addEventListener('click', () => {
-                document.querySelector('.dropdown-content').classList.remove('active');
-            });
-        });
+    // Get the modal
+    var modal = document.getElementById("leadershipModal");
 
-        // Slideshow functionality
-        let slideIndex = 0;
-        showSlides();
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
 
-        function showSlides() {
-            let slides = document.querySelectorAll(".mySlides");
-            slides.forEach(slide => slide.style.display = "none");
-            slideIndex++;
-            if (slideIndex > slides.length) { slideIndex = 1 }
-            slides[slideIndex - 1].style.display = "block";
-            setTimeout(showSlides, 5000); // Change image every 5 seconds
+    // When the user clicks on the button, open the modal
+    function showLeadershipDetails() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
         }
-
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
+    }
     </script>
 </body>
-</html>
+                    </html>
