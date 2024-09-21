@@ -32,15 +32,12 @@
         color: gold;
         padding: 1rem 0;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        
     }
 
     header .logo {
         width: 120px;
         float: left;
         border-radius: 50%;
-        
-        
     }
 
     header nav {
@@ -66,6 +63,7 @@
         float: right;
         cursor: pointer;
         z-index: 1000;
+        margin-right: 15px;
     }
 
     .menu-icon .bar {
@@ -74,14 +72,6 @@
         background-color: gold;
         margin: 5px 0;
         transition: 0.4s;
-
-
-        Margin-right:15px;
-
-
-
-
-        
     }
 
     /* Rotate first bar */
@@ -336,61 +326,68 @@
 
             <h2>Key Performance (2023)</h2>
             <ul>
-                <li>Membership: <strong>3,789</strong></li>
-                <li>Savings: <strong >UGX 1.35 billion</strong></li>
-                <li>Loans: <strong > UGX 1.59 billion</strong></li>
-                <li>Assets: <strong > UGX 2.5 billion</strong></li>
+            
+                            <li>Membership: <strong>3,789</strong></li>
+                <li>Loans disbursed: <strong>UGX 1.5 billion</strong></li>
+                <li>Assets: <strong>UGX 2.7 billion</strong></li>
+                <li>Branches: <strong>5</strong></li>
             </ul>
         </section>
 
-        <section id="vision-mission">
-            <h2>Our Aim Goal</h2>
-            <p> Serving as a leading SACCO while providing affordable financial services.</p>
+        <section id="our-mission">
+            <h2>Our Mission</h2>
+            <p>To promote financial inclusion by offering affordable and accessible savings and credit services to the rural community, while fostering economic empowerment and self-sufficiency.</p>
+        </section>
 
-            <h2>What we do! </h2>
-            <p>Offering sustainable financial services that empower members economically.</p>
+        <section id="values">
+            <h2>Our Core Values</h2>
+            <ul>
+                <li>Integrity</li>
+                <li>Transparency</li>
+                <li>Member Empowerment</li>
+                <li>Inclusivity</li>
+            </ul>
         </section>
 
         <section id="leadership">
-            <h2>Leadership & Governance</h2>
-            <p>The SACCO is led by a Board of Directors, with Mr. Waako Robert as the Chairman.</p>
-            <p>For more details on leadership, <a href="#" onclick="showLeadershipDetails()">click here.</a></p>
+            <h2>Leadership</h2>
+            <p>Our SACCO is governed by a board of directors elected by the members. The board ensures that the SACCO adheres to its mission, vision, and values, and that it complies with regulations.</p>
         </section>
 
-        <section id="management">
-            <h2>Management Team</h2>
-            <p>Managed by Mrs. Kusemererwa K. Mastulla, the SACCO has a team of 30 officials.</p>
-        </section>
+        <button id="openModalBtn">Learn More About Us</button>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>History of Busaiga SACCO</h2>
+                <p>Busaiga SACCO began as a small savings and credit association formed by local farmers in 1991. As the demand for financial services grew, it became a fully registered cooperative in 2006. Over the years, the SACCO has grown to serve thousands of members and expanded its services across the region.</p>
+            </div>
+        </div>
     </main>
 
     <footer>
         <div class="container">
-            <p>Location: P.O. Box 980, Harugongo Subcounty, Kabarole District</p>
-            <p>&copy; 2024 BUSAIGA SACCO. All rights reserved.</p>
-            <p>Powered by <a href="https://wa.me/+256784829845" target="_blank">Busaiga SACCO</a></p>
-            <p>Developed by <a href="https://wa.me/+256779491167" target="_blank">IG Digital Solutions/Wizcom</a></p>
+            <div class="footer-block">
+                <p>Address: Plot 12, Main Street, Fort Portal, Uganda</p>
+            </div>
+            <div class="footer-block">
+                <p>Email: info@busaigasacco.com</p>
+            </div>
+            <div class="footer-block">
+                <p>Phone: +256 789 123 456</p>
+            </div>
+            <div class="footer-block">
+                <p>&copy; 2024 Busaiga SACCO. All Rights Reserved.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- Leadership Details Modal -->
-    <div id="leadershipModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Board of Directors</h2>
-            <ul>
-                <li>Mr. Waako Robert - Chairman</li>
-                <li>Mr. Kalemera Hannington - Vice Chairman</li>
-                <li>Ms. Kabubwinga Juliet - Secretary</li>
-                <li>Mr. Muhumuza Patrick - Treasurer</li>
-                <li>Ms. Birungi Agnes - Member</li>
-            </ul>
-        </div>
-    </div>
-
     <script>
+    // Toggle Sidebar
     function toggleSidebar() {
         var sidebar = document.getElementById("mySidebar");
-        var menuIcon = document.querySelector(".menu-icon");
+        var menuIcon = document.querySelector('.menu-icon');
         if (sidebar.style.width === "250px") {
             sidebar.style.width = "0";
             menuIcon.classList.remove("change");
@@ -400,28 +397,26 @@
         }
     }
 
-    // Get the modal
-    var modal = document.getElementById("leadershipModal");
-
-    // Get the <span> element that closes the modal
+    // Modal Logic
+    var modal = document.getElementById("myModal");
+    var btn = document.getElementById("openModalBtn");
     var span = document.getElementsByClassName("close")[0];
 
-    // When the user clicks on the button, open the modal
-    function showLeadershipDetails() {
+    btn.onclick = function() {
         modal.style.display = "block";
     }
 
-    // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
         modal.style.display = "none";
     }
 
-    // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
-        if (event.target == modal) {
+        if (event.target === modal) {
             modal.style.display = "none";
         }
     }
     </script>
 </body>
-                    </html>
+</html>
+
+                
