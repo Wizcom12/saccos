@@ -5,8 +5,225 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BUSAIGA SACCO - About Us</title>
     <link rel="stylesheet" href="about.css">
+    2 <Style>
     
+    /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+/* Layout and Container */
+.container {
+    width: 90%;
+    margin: auto;
+    max-width: 1200px;
+}
+
+/* Header Styling */
+header {
+    background-color: #0275d8;
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    width: 150px;
+    float: left;
+}
+
+header nav {
+    float: right;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #f4f4f4;
+}
+
+/* Menu Icon for mobile */
+.menu-icon {
+    display: none;
+    float: right;
+    cursor: pointer;
+}
+
+.menu-icon .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+}
+
+/* Main Section Styling */
+main {
+    background-color: white;
+    padding: 2rem;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+main h1, main h2 {
+    color: #0275d8;
+}
+
+main p {
+    font-size: 18px;
+    margin-bottom: 1.5rem;
+}
+
+main ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+main ul li {
+    font-size: 18px;
+    background-color: #e9ecef;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-left: 5px solid #0275d8;
+    border-radius: 5px;
+}
+
+/* Section Styling */
+section {
+    margin-bottom: 2rem;
+}
+
+button {
+    background-color: #0275d8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #025aa5;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover, .close:focus {
+    color: #333;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #0275d8;
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+footer a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ffc107;
+}
+
+/* Responsive Layout for Mobile */
+@media (max-width: 768px) {
+    header nav {
+        display: none;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .logo {
+        float: none;
+        display: block;
+        margin: auto;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
     
+    </style>
 </head>
 <body>
     <header>
@@ -45,241 +262,470 @@
 
     <main>
         <section id="background">
-            <h1>BACKGROUND TO BUSAIGA COOPERATIVE SAVING AND CREDIT SOCIETY LTD</h1>
-            <h2>1.0 Historical Background to Busaiga Cooperative Saving and Credit Society Ltd</h2>
-            <p>
-                Busaiga Cooperative Savings and Credit Society Ltd traces its roots from a group of 10 members involved in brewing and selling Local brew (Waragi). 
-                The members would brew together to generate money as a group to support their families. However, it was realized that the business of brewing was 
-                exclusive to some members of the community especially the born again and other religious sects. In 1991, the members decided to form themselves into 
-                a ROSCA where money from individual businesses would be collected and partly given to a single member of the group and save part.
-            </p>
-            <p>With Mr. Clovice Makune at the helm, the founding members included:</p>
+            <h1>About Busaiga SACCO</h1>
+            <p>Busaiga SACCO started in 1991 as a small ROSCA and grew into a registered financial cooperative in 2006.</p>
+            <p>Serving communities in Western Uganda, Busaiga SACCO has evolved to provide affordable savings and credit services.</p>
+
+            <h2>Key Performance (2023)</h2>
             <ul>
-                <li>Mr. Lawrence Kusemererwa</li>
-                <li>Mr. Lawrence Kamara (RIP)</li>
-                <li>Mr. Arrone Kasaija</li>
-                <li>Mr. Edward Kyomya (RIP)</li>
-                <li>Miss Joan Bonabana</li>
-                <li>Mr. Yosia Katuramu</li>
-                <li>Mr. David Mwesige</li>
-                <li>Mr. Peter Bakuna</li>
-                <li>Mr. Clovice Nyakaana</li>
-            </ul>
-            <p>
-                By the end of 1998, the group had grown to 30 members on the strength of availability of Banana (Ndizi) ideal for waragi making. The group was hit by the Banana bacteria wilt that saw 
-                a reduction in the production of the local brew. Undeterred, the members changed their model to saving small amounts of money which they would on-lend to themselves and distribute the 
-                revenue at the end of the year. By the end of 2003, the group had grown to 150. With the dire need to grow to a sustainable institution, 2006 saw the transformation of the informal group 
-                into a registered financial Cooperative in the name of Busaiga Savings and Credit Cooperative Society (Busaiga SACCO) under registration No REG NO 6681/RCS.
-            </p>
-            <p>
-                With land provided by one of the members, a home for the SACCO was constructed using their own labour and local construction materials that were readily available within the area 
-                (Bikenkya and mud). To date, the SACCO boasts of a modern state-of-the-art office building in Busaiga and a branch network.
-            </p>
-            <p>
-                Busaiga SACCO has sustainably served the communities of Western Uganda including Fort Portal City, Kichwamba, Harugongo and Hakibaale Sub-counties of Kabarole District, 
-                Kanara Subcounty in Ntoroka District, and Bundibugyo district.
-            </p>
-            <h3>Key Trended Performance Indicators</h3>
-            <table border="1">
-                <tr>
-                    <th></th>
-                    <th>2019</th>
-                    <th>2020</th>
-                    <th>2021</th>
-                    <th>2022</th>
-                    <th>2023</th>
-                </tr>
-                <tr>
-                    <td>Membership</td>
-                    <td>2,148</td>
-                    <td>2,344</td>
-                    <td>2,662</td>
-                    <td>3,116</td>
-                    <td>3,789</td>
-                </tr>
-                <tr>
-                    <td>Savings</td>
-                    <td>712,601,950</td>
-                    <td>779,460,439</td>
-                    <td>831,489,953</td>
-                    <td>1,152,584,926</td>
-                    <td>1,358,924,263</td>
-                </tr>
-                <tr>
-                    <td>Shares</td>
-                    <td>144,083,700</td>
-                    <td>164,132,200</td>
-                    <td>200,685,653</td>
-                    <td>321,588,497</td>
-                    <td>379,531,897</td>
-                </tr>
-                <tr>
-                    <td>Outstanding Loan Portfolio</td>
-                    <td>839,742,016</td>
-                    <td>883,128,760</td>
-                    <td>957,157,199</td>
-                    <td>1,167,503,539</td>
-                    <td>1,595,890,454</td>
-                </tr>
-                <tr>
-                    <td>Total Assets</td>
-                    <td>1,287,181,142</td>
-                    <td>1,660,051,185</td>
-                    <td>1,908,803,311</td>
-                    <td>2,313,858,129</td>
-                    <td>2,508,289,775</td>
-                </tr>
-                <tr>
-                    <td>PAR > 30 Days</td>
-                    <td>5</td>
-                    <td>6</td>
-                    <td>6</td>
-                    <td>5</td>
-                    <td>4</td>
-                </tr>
-                <tr>
-                    <td>Loan to Saving + Share Capital ratio</td>
-                    <td>98%</td>
-                    <td>94%</td>
-                    <td>93%</td>
-                    <td>79%</td>
-                    <td>92%</td>
-                </tr>
-                <tr>
-                    <td>Loan to Asset Ratio</td>
-                    <td>65%</td>
-                    <td>53%</td>
-                    <td>50%</td>
-                    <td>50%</td>
-                    <td>64%</td>
-                </tr>
-                <tr>
-                    <td>OSS</td>
-                    <td>120</td>
-                    <td>121</td>
-                    <td>130</td>
-                    <td>150</td>
-                    <td>200</td>
-                </tr>
-            </table>
-            <h2>1.1 Vision</h2>
-            <p>A Leading SACCO providing affordable financial services to members.</p>
-            <h2>1.2 Mission</h2>
-            <p>To provide sustainable financial savings and credit services that will economically empower the members.</p>
-            <h2>1.3 Strategic Objectives</h2>
-            <ul>
-                <li>Strengthening Credit Management System and Culture for improved portfolio quality, yield and affordability through appropriate methodology</li>
-                <li>Strengthening the SACCOs savings management systems and culture for competitiveness and savings growth as well as offering attractive return on deposit</li>
-                <li>To build customer centric system for effective and efficient Microfinance service delivery</li>
-                <li>Increase Operating Self Sufficiency ratio above the current 158%</li>
-                <li>Build an appropriate staff establishment structure to aid effective implementation of the SACCO’s strategy and nurture a performance-based system to facilitate human resource attraction, development and retention for effective implementation of Busaiga SACCO’s strategy</li>
-                <li>Computerize all departments and systems</li>
-                <li>Strengthening governance structure and nurturing an inclusive leadership in the SACCO that is accountable to all stakeholders</li>
+                <li>Membership: 3,789</li>
+                <li>Savings: UGX 1.35 billion</li>
+                <li>Loans: UGX 1.59 billion</li>
+                <li>Assets: UGX 2.5 billion</li>
             </ul>
         </section>
 
-        <section id="performance">
-            <h2>2.0 Leadership and Governance</h2>
-            <h3>2.1 The General Assembly</h3>
-            <p>The supreme organ of Busaiga Cooperative Saving and Credit Society Ltd is the General Assembly, composed of all the members.</p>
-            <h3>2.2 The Board of Directors and the Supervisory Committee</h3>
-            <p>The Board is the second highest organ of Busaiga Cooperative Saving and Credit Society Ltd below the General Assembly.</p>
-            <p>Currently, the Board comprises seven Directors. As of June 2024, the Board is headed by Mr. Waako Robert, a leader so passionate about the growth of the SACCO. The following comprise the Board of Directors:</p>
-            <table border="1">
-                <tr>
-                    <th>Name</th>
-                    <th>Designation</th>
-                </tr>
-                <tr>
-                    <td>Mr. Waako Robert</td>
-                    <td>Board Chairman</td>
-                </tr>
-                <tr>
-                    <td>Kalemera Hannington</td>
-                    <td>Secretary</td>
-                </tr>
-                <tr>
-                    <td>Kabubwinga Juliet</td>
-                    <td>Treasurer</td>
-                </tr>
-                <tr>
-                    <td>Sanyu Vincent</td>
-                    <td>Vice Chairperson</td>
-                </tr>
-                <tr>
-                    <td>Murungi Margret</td>
-                    <td>Chairperson - Human Resources Committee</td>
-                </tr>
-                <tr>
-                    <td>Kabubwinga Juliet</td>
-                    <td>Chairperson - Finance Committee</td>
-                </tr>
-                <tr>
-                    <td>Kalemera Hannington</td>
-                    <td>Member</td>
-                </tr>
-            </table>
-            <p>In line with Cooperative practices, the SACCO has a three-member Supervisory Board charged with undertaking internal audit of SACCO operations with the following membership:</p>
-            <table border="1">
-                <tr>
-                    <th>Name</th>
-                    <th>Designation</th>
-                </tr>
-                <tr>
-                    <td>Nyakaisiki Margret</td>
-                    <td>Chairperson</td>
-                </tr>
-                <tr>
-                    <td>Kobusinge Stella</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Muganyizi Hebert</td>
-                    <td></td>
-                </tr>
-            </table>
-            <h3>2.3 Management</h3>
-            <div class="management">
-                <p>
-                    Technical work is undertaken by 30 officials who constitute the management team headed by Mrs. Kusemererwa K Mastulla in the capacity of Chief Executive Officer. 
-                    For the last 11 years, Mastulla has championed transformation and steady growth of Busaiga SACCO to a regulated and growing financial cooperative. To date, the 
-                    SACCO has been licensed by UMRA.
-                </p>
-                <img src="managent.jpg" alt="management-image">
-            </div>
-            <p>
-                To enhance efficiency and effectiveness, the Management team is arranged into three departments: Loans, Finance, and Marketing.
-            </p>
-            
-            <div class="images-section">
-                <div>
-                    <h4>Figure 2: The Head of Management Team - Mastulla Kusemererwa</h4>
-                    <img src="ceo.jpg" alt="Additional Image 1">
-                    <p></p>
-                </div>
-                <div>
-                    <h4>Figure 3: The Chief Executive Officer - Mastulla Kusemererwa</h4>
-                    <img src="ceo.jpg" alt="Additional Image 2">
-                    
-                </div>
-            </div>
+        <section id="vision-mission">
+            <h2>Vision</h2>
+            <p>To be a leading SACCO providing affordable financial services.</p>
+
+            <h2>Mission</h2>
+            <p>To offer sustainable financial services that empower members economically.</p>
+        </section>
+
+        <section id="leadership">
+            <h2>Leadership & Governance</h2>
+            <p>The SACCO is led by a Board of Directors, with Mr. Waako Robert as the Chairman.</p>
+            <p>For more details on leadership, <a href="#" onclick="showLeadershipDetails()">click here.</a></p>
+        </section>
+
+        <section id="management">
+            <h2>Management Team</h2>
+            <p>Managed by Mrs. Kusemererwa K. Mastulla, the SACCO has a team of 30 officials.</p>
         </section>
     </main>
 
-     <footer>
+    <footer>
         <div class="container">
             <p>Location: P.O. Box 980, Harugongo Subcounty, Kabarole District</p>
             <p>&copy; 2024 BUSAIGA SACCO. All rights reserved.</p>
-            <p>Powered by <a href="https://wa.me/+256784829845" target="_blank">Busaiga SACCO</a></p> 
+            <p>Powered by <a href="https://wa.me/+256784829845" target="_blank">Busaiga SACCO</a></p>
             <p>Developed by <a href="https://wa.me/+256779491167" target="_blank">IG Digital Solutions/Wizcom</a></p>
         </div>
     </footer>
-</body>
-    
 
     <script>
         function toggleSidebar() {
             document.querySelector('.sidebar').classList.toggle('active');
+        }
+
+        function showLeadershipDetails() {
+            alert("Board of Directors: Mr. Waako Robert, Mr. Kalemera Hannington, Ms. Kabubwinga Juliet...");
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUSAIGA SACCO - About Us</title>
+    <link rel="stylesheet" href="about.css">
+    2 <Style>
+    
+    /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+/* Layout and Container */
+.container {
+    width: 90%;
+    margin: auto;
+    max-width: 1200px;
+}
+
+/* Header Styling */
+header {
+    background-color: #0275d8;
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    width: 150px;
+    float: left;
+}
+
+header nav {
+    float: right;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #f4f4f4;
+}
+
+/* Menu Icon for mobile */
+.menu-icon {
+    display: none;
+    float: right;
+    cursor: pointer;
+}
+
+.menu-icon .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+}
+
+/* Main Section Styling */
+main {
+    background-color: white;
+    padding: 2rem;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+main h1, main h2 {
+    color: #0275d8;
+}
+
+main p {
+    font-size: 18px;
+    margin-bottom: 1.5rem;
+}
+
+main ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+main ul li {
+    font-size: 18px;
+    background-color: #e9ecef;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-left: 5px solid #0275d8;
+    border-radius: 5px;
+}
+
+/* Section Styling */
+section {
+    margin-bottom: 2rem;
+}
+
+button {
+    background-color: #0275d8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #025aa5;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover, .close:focus {
+    color: #333;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #0275d8;
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+footer a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ffc107;
+}
+
+/* Responsive Layout for Mobile */
+@media (max-width: 768px) {
+    header nav {
+        display: none;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .logo {
+        float: none;
+        display: block;
+        margin: auto;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+    
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="logo.jpg" alt="BUSAIGA SACCO Logo" class="logo">
+            <!-- Menu Icon for Small Screens -->
+            <div class="menu-icon" onclick="toggleSidebar()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="savings.html">Savings Products</a>
+                <a href="loans.html">Loan Products</a>
+                <a href="service-centers.html">Service Centers</a>
+                <a href="mobile.html">Mobile Transactions</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="gallery.html">Gallery</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="sidebar-content">
+            <a href="index.html">Home</a>
+            <a href="savings.html">Savings Products</a>
+            <a href="loans.html">Loan Products</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="mobile.html">Mobile Transactions</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="service-centers.html">Service Centers</a>
+        </div>
+    </nav>
+
+    <main>
+        <section id="background">
+            <h1>About Busaiga SACCO</h1>
+            <p>Busaiga SACCO started in 1991 as a small ROSCA and grew into a registered financial cooperative in 2006.</p>
+            <p>Serving communities in Western Uganda, Busaiga SACCO has evolved to provide affordable savings and credit services.</p>
+
+            <h2>Key Performance (2023)</h2>
+            <ul>
+                <li>Membership: 3,789</li>
+                <li>Savings: UGX 1.35 billion</li>
+                <li>Loans: UGX 1.59 billion</li>
+                <li>Assets: UGX 2.5 billion</li>
+            </ul>
+        </section>
+
+        <section id="vision-mission">
+            <h2>Vision</h2>
+            <p>To be a leading SACCO providing affordable financial services.</p>
+
+            <h2>Mission</h2>
+            <p>To offer sustainable financial services that empower members economically.</p>
+        </section>
+
+        <section id="leadership">
+            <h2>Leadership & Governance</h2>
+            <p>The SACCO is led by a Board of Directors, with Mr. Waako Robert as the Chairman.</p>
+            <p>For more details on leadership, <a href="#" onclick="showLeadershipDetails()">click here.</a></p>
+        </section>
+
+        <section id="management">
+            <h2>Management Team</h2>
+            <p>Managed by Mrs. Kusemererwa K. Mastulla, the SACCO has a team of 30 officials.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Location: P.O. Box 980, Harugongo Subcounty, Kabarole District</p>
+            <p>&copy; 2024 BUSAIGA SACCO. All rights reserved.</p>
+            <p>Powered by <a href="https://wa.me/+256784829845" target="_blank">Busaiga SACCO</a></p>
+            <p>Developed by <a href="https://wa.me/+256779491167" target="_blank">IG Digital Solutions/Wizcom</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        }
+
+        function showLeadershipDetails() {
+            alert("Board of Directors: Mr. Waako Robert, Mr. Kalemera Hannington, Ms. Kabubwinga Juliet...");
+        }
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUSAIGA SACCO - About Us</title>
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="logo.jpg" alt="BUSAIGA SACCO Logo" class="logo">
+            <!-- Menu Icon for Small Screens -->
+            <div class="menu-icon" onclick="toggleSidebar()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="savings.html">Savings Products</a>
+                <a href="loans.html">Loan Products</a>
+                <a href="service-centers.html">Service Centers</a>
+                <a href="mobile.html">Mobile Transactions</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="gallery.html">Gallery</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="sidebar-content">
+            <a href="index.html">Home</a>
+            <a href="savings.html">Savings Products</a>
+            <a href="loans.html">Loan Products</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="mobile.html">Mobile Transactions</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="service-centers.html">Service Centers</a>
+        </div>
+    </nav>
+
+    <main>
+        <section id="background">
+            <h1>About Busaiga SACCO</h1>
+            <p>Busaiga SACCO started in 1991 as a small ROSCA and grew into a registered financial cooperative in 2006.</p>
+            <p>Serving communities in Western Uganda, Busaiga SACCO has evolved to provide affordable savings and credit services.</p>
+
+            <h2>Key Performance (2023)</h2>
+            <ul>
+                <li>Membership: 3,789</li>
+                <li>Savings: UGX 1.35 billion</li>
+                <li>Loans: UGX 1.59 billion</li>
+                <li>Assets: UGX 2.5 billion</li>
+            </ul>
+        </section>
+
+        <section id="vision-mission">
+            <h2>Vision</h2>
+            <p>To be a leading SACCO providing affordable financial services.</p>
+
+            <h2>Mission</h2>
+            <p>To offer sustainable financial services that empower members economically.</p>
+        </section>
+
+        <section id="leadership">
+            <h2>Leadership & Governance</h2>
+            <p>The SACCO is led by a Board of Directors, with Mr. Waako Robert as the Chairman.</p>
+            <p>For more details on leadership, <a href="#" onclick="showLeadershipDetails()">click here.</a></p>
+        </section>
+
+        <section id="management">
+            <h2>Management Team</h2>
+            <p>Managed by Mrs. Kusemererwa K. Mastulla, the SACCO has a team of 30 officials.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Location: P.O. Box 980, Harugongo Subcounty, Kabarole District</p>
+            <p>&copy; 2024 BUSAIGA SACCO. All rights reserved.</p>
+            <p>Powered by <a href="https://wa.me/+256784829845" target="_blank">Busaiga SACCO</a></p>
+            <p>Developed by <a href="https://wa.me/+256779491167" target="_blank">IG Digital Solutions/Wizcom</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleSidebar() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        }
+
+        function showLeadershipDetails() {
+            alert("Board of Directors: Mr. Waako Robert, Mr. Kalemera Hannington, Ms. Kabubwinga Juliet...");
         }
     </script>
 </body>
