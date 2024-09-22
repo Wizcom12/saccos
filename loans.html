@@ -1,18 +1,244 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BUSAIGA SACCO - Loan Products</title>
-    <link rel="stylesheet" href="loans.css">
+    <style>
+    /* General Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+        line-height: 1.6;
+        background-color: #f4f4f4;
+    }
+
+    /* Layout and Container */
+    .container {
+        width: 90%;
+        margin: auto;
+        max-width: 1200px;
+    }
+
+    /* Header Styling */
+    header {
+        background-color: white;
+        color: gold;
+        padding: 1rem 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    header .logo {
+        width: 120px;
+        float: left;
+        border-radius: 50%;
+    }
+
+    header nav {
+        float: right;
+    }
+
+    header nav a {
+        color: gold;
+        text-decoration: none;
+        margin-left: 20px;
+        font-weight: bold;
+        font-size: 16px;
+        transition: color 0.3s ease;
+    }
+
+    header nav a:hover, header nav a.active {
+        color: #0275d8;
+    }
+
+    /* Menu Icon for mobile */
+    .menu-icon {
+        display: none;
+        float: right;
+        cursor: pointer;
+        z-index: 1000;
+        margin-right: 15px;
+    }
+
+    .menu-icon .bar {
+        width: 25px;
+        height: 3px;
+        background-color: gold;
+        margin: 5px 0;
+        transition: 0.4s;
+    }
+
+    /* Sidebar Styling */
+    .sidebar {
+        height: 75%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        background-color: white;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 40px;
+        border-radius: 4px;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    }
+
+    .sidebar a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 20px;
+        color: #ffcc00;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .sidebar a:hover, .sidebar a.active {
+        color: #0275d8;
+    }
+
+    .sidebar .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+    /* Main Section Styling */
+    main {
+        background-color: white;
+        padding: 2rem;
+        margin: 60px 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    main h2 {
+        color: #0275d8;
+        margin-bottom: 1rem;
+    }
+
+    main p {
+        font-size: 18px;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Loan Products Styling */
+    .loans-products-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .loan-product {
+        flex-basis: calc(33.333% - 20px);
+        margin-bottom: 2rem;
+        background-color: #e9ecef;
+        padding: 1rem;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .loan-product img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 5px;
+        margin-bottom: 1rem;
+    }
+
+    .loan-product h3 {
+        color: #0275d8;
+        margin-bottom: 0.5rem;
+    }
+
+    .loan-product p {
+        font-size: 14px;
+        margin-bottom: 0.5rem;
+    }
+
+    .loan-product .cta {
+        display: inline-block;
+        background-color: #0275d8;
+        color: white;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .loan-product .cta:hover {
+        background-color: #025aa5;
+    }
+
+    /* Footer Styling */
+    footer {
+        background-color: #0275d8;
+        color: white;
+        padding: 2rem 0;
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    footer p {
+        margin-bottom: 0.5rem;
+    }
+
+    footer a {
+        color: #ffcc00;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+        color: #ffc107;
+    }
+
+    /* Responsive Layout */
+    @media screen and (max-width: 768px) {
+        header nav {
+            display: none;
+        }
+
+        .menu-icon {
+            display: block;
+        }
+
+        .logo {
+            float: none;
+            display: block;
+            margin: auto;
+        }
+
+        main {
+            padding: 1rem;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        .loan-product {
+            flex-basis: 100%;
+        }
+    }
+    </style>
 </head>
 <body>
 
     <header>
-        <img src="logo.jpg" alt="BUSAIGA SACCO Logo" class="logo">
         <div class="container">
-            
-            <!-- Menu Icon for Small Screens -->
+            <img src="logo.jpg" alt="BUSAIGA SACCO Logo" class="logo">
             <div class="menu-icon" onclick="toggleSidebar()">
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -20,38 +246,44 @@
             </div>
             <nav>
                 <a href="index.html">Home</a>
-                <a href="about.html" class="active">About Us</a>
+                <a href="about.html">About Us</a>
                 <a href="savings.html">Savings Products</a>
+                <a href="opportunities .html" class="active">Opportunities </a>
+                <a href="events.html">Events</a>
                 
-                <a href="gallery.html">Gallery</a>
+                             <a href="service-centers.html">Service Centers</a>  
+                
+                
                 <a href="mobile.html">Mobile Transactions</a>
                 <a href="contact.html">Contact Us</a>
-                <a href="service-centers.html">Service Centers</a>
+ 
+ 
+                <a href="gallery.html">Gallery </a>
             </nav>
         </div>
     </header>
 
-    <!-- Sidebar -->
-    <nav class="sidebar">
-        <div class="sidebar-content">
-            <a href="index.html">Home</a>
-            <a href="about.html" class="active">About Us</a>
-            <a href="savings.html">Savings Products</a>
-           
-            <a href="service-centers.html">Service Centers</a>
-            <a href="mobile.html">Mobile Transactions</a>
-            <a href="contact.html">Contact Us</a>
-            
-            <a href="gallery.html">Gallery</a>
-        </div>
-    </nav>
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="savings.html">Savings Products</a>
+        <a href="opportunities.html" class="active">Opportunities </a>
+        <a href="service-centers.html">Service Centers</a>
+        
+         <a href="events.html">Events </a>
+        
+        <a href="mobile.html">Mobile Transactions</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="gallery.html">Gallery</a>
+    </div>
 
     <main>
         <section class="loans">
             <div class="container">
-                <h2>Welcome to BUSAIGA SACCO</h2>
-                <h2>Loans Products</h2>
-                <p>BUSAIGA SACCO is your trusted financial partner, dedicated to providing a wide range of financial services to empower our members and the community. Explore our loan products below and choose the one that suits your needs.</p>
+                <h2> BUSAIGA SACCO</h2>
+                <h2>Loan Products</h2>
+                <p> Explore our loan products and choose the one that suits your needs. Fast and Urgent! </p>
             </div>
         </section>
 
@@ -63,7 +295,7 @@
                 <p>Requirements: Business must be operational for at least 12 months</p>
                 <p>Savings Deposit: At least 15% of the loan amount</p>
                 <p>Repayment Period: 1 - 24 months</p>
-                <a href="#" class="cta"> More</a>
+                <a href="#" class="cta">More</a>
             </div>
 
             <div class="loan-product">
@@ -72,7 +304,7 @@
                 <p>Amount: UGX 100,000 - 4,000,000</p>
                 <p>Requirements: Admission letter, school payslips, fees bills, student's school ID</p>
                 <p>Repayment Period: 1 - 6 months</p>
-                <a href="#" class="cta"> More</a>
+                <a href="#" class="cta">More</a>
             </div>
 
             <div class="loan-product">
@@ -80,7 +312,7 @@
                 <h3>Agriculture Loan</h3>
                 <p>Amount: UGX 100,000 - 10,000,000</p>
                 <p>Repayment Period: 1 - 12 months</p>
-                <a href="#" class="cta"> More</a>
+                <a href="#" class="cta">More</a>
             </div>
 
             <div class="loan-product">
@@ -88,7 +320,7 @@
                 <h3>Home Improvement Loan</h3>
                 <p>Amount: UGX 500,000 - 30,000,000</p>
                 <p>Repayment Period: 1 - 24 months</p>
-                <a href="#" class="cta"> More</a>
+                <a href="#" class="cta">More</a>
             </div>
 
             <div class="loan-product">
@@ -97,7 +329,7 @@
                 <p>Amount: UGX 100,000 - 10,000,000</p>
                 <p>Repayment Period: 1 - 24 months</p>
                 <p>Savings Deposit: At least 10% of the loan amount</p>
-                <a href="#" class="cta"> More</a>
+                <a href="#" class="cta">More</a>
             </div>
 
             <div class="loan-product">
@@ -107,7 +339,7 @@
                 <p>Repayment Schedule: Weekly payments</p>
                 <p>Initial Deposit: UGX 1,000,000</p>
                 <p>Weekly Repayments: UGX 67,000</p>
-                <a href="#" class="cta"> More</a>
+                <a href="#" class="cta">More</a>
             </div>
 
             <div class="loan-product">
@@ -116,7 +348,7 @@
                 <p>Amount: UGX 1,000,000 - 30,000,000</p>
                 <p>Requirements: Seller agreement in case of land, plot, or vehicle</p>
                 <p>Repayment Period: 1 - 24 months</p>
-                <a href="#" class="cta"> More</a>
+                <a href="#" class="cta">More</a>
             </div>
 
             <div class="loan-product">
@@ -125,7 +357,7 @@
                 <p>Amount: UGX 200,000 - 10,000,000</p>
                 <p>Requirements: Employment contract, payslips for the last three months</p>
                 <p>Repayment Period: 1 - 12 months</p>
-                <a href="#" class="cta"> More</a>
+                <a href="#" class="cta">More</a>
             </div>
 
             <div class="loan-product">
@@ -134,7 +366,7 @@
                 <p>Amount: UGX 100,000 - 2,000,000</p>
                 <p>Requirements: Valid emergency, savings of at least 10% of the loan amount</p>
                 <p>Repayment Period: 1 - 6 months</p>
-                <a href="#" class="cta"> More</a>
+                <a href="#" class="cta">More</a>
             </div>
         </div>
     </main>
@@ -144,13 +376,26 @@
             <p>Location: P.O. Box 980, Harugongo Subcounty, Kabarole District</p>
             <p>&copy; 2024 BUSAIGA SACCO. All rights reserved.</p>
             <p>Powered by <a href="https://wa.me/+" target="_blank">Busaiga SACCO</a></p> 
-                <p></p>Developed by <a href="https://wa.me/+256779491167" target="_blank">IG Didital Solutions/Wizcom</a></p>
+            <p>Developed by <a href="https://wa.me/+256779491167" target="_blank">IG Digital Solutions/Wizcom</a></p>
         </div>
     </footer>
+
     <script>
-        function toggleSidebar() {
-            document.querySelector('.sidebar').classList.toggle('active');
+    // Toggle Sidebar
+    function toggleSidebar() {
+        var sidebar = document.getElementById("mySidebar");
+        var menuIcon = document.querySelector('.menu-icon');
+        if (sidebar.style.width === "250px") {
+            sidebar.style.width = "0";
+            menuIcon.classList.remove("change");
+        } else {
+            sidebar.style.width = "250px";
+            menuIcon.classList.add("change");
         }
+    }
     </script>
 </body>
 </html>
+
+```
+
