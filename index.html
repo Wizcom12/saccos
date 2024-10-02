@@ -382,7 +382,9 @@
         </div>
     </div>
 <script>
-                    const sections = [
+
+
+const sections = [
     { 
         id: 'savings', 
         name: 'Savings', 
@@ -403,8 +405,98 @@
         `, 
         pageLink: 'loans.html' 
     },
-    // ... other sections ...
+    { 
+        id: 'service-centers', 
+        name: 'Service Centers', 
+        description: `
+            <p>Our service centers are conveniently located to serve our members across the region. At each service center, you can access our full range of 
+            financial services including deposits, withdrawals, loan applications, and financial advice from our dedicated staff.</p>
+            <p>Find the nearest service center and enjoy fast, reliable service.</p>
+        `, 
+        pageLink: 'service-centers.html' 
+    },
+    { 
+        id: 'about-us', 
+        name: 'About Us', 
+        description: `
+            <h4><Strong>Achievements From 2020</Strong> SACCO:</h4> <br>
+            <div class="progress-bar">
+                <div class="progress" style="width: 70%;">Savings</div>
+                <div class="progress-number">70%</div>
+            </div>
+            <br>
+            <div class="progress-bar mt-4">
+                <div class="progress" style="width: 85%;">Loans disbursed </div>
+                <div class="progress-number">85%</div>
+            </div> <br>
+            <p>Busaiga SACCO is committed to empowering individuals and communities through sustainable financial solutions. 
+            Since our inception, we have expanded our services to reach thousands of members, offering both savings and loan products to uplift livelihoods.</p>
+            <p>Our mission is to foster economic development and financial inclusion in our community, providing financial education and support for personal 
+            and business growth.</p>
+        `, 
+        pageLink: 'about.html' 
+    },
+    { 
+        id: 'contact-us', 
+        name: 'Contact Us', 
+        description: `
+            <p>If you have any questions or need assistance, feel free to contact us through our customer service hotline or visit any of our service centers. 
+            Our dedicated team is always ready to assist you with your financial needs.</p>
+        `, 
+        pageLink: 'contact.html' 
+    },
+    { 
+        id: 'gallery', 
+        name: 'Gallery', 
+        description: `
+            <p>Check out the gallery of our events and activities at Busaiga SACCO. From community outreach programs to member appreciation days, 
+            we take pride in documenting and sharing our journey with you.</p>
+        `, 
+        pageLink: 'gallery.html' 
+    },
+    { 
+        id: 'mobile-payments', 
+        name: 'Mobile Payments', 
+        description: `
+            <p>We provide mobile payment options to make it easier for you to manage your SACCO transactions from anywhere. With our mobile payment platforms, 
+            you can deposit, withdraw, and even make loan payments at your convenience.</p>
+            <p>Enjoy financial freedom with just a few taps on your phone.</p>
+        `, 
+        pageLink: 'mobile.html' 
+    },
+    { 
+        id: 'partnership', 
+        name: 'Partnership', 
+        description: `
+            <p>Busaiga SACCO believes in the power of partnerships. We collaborate with local businesses, organizations, and other SACCOs to create 
+            opportunities that benefit our members and the community at large.</p>
+            <p>Learn more about our partnerships and how we can work together to achieve mutual success.</p>
+        `, 
+        pageLink: 'index.html' 
+    },
+    { 
+        id: 'opportunities', 
+        name: 'Opportunities', 
+        description: `
+            <p>At Busaiga SACCO, we offer opportunities for growth in both employment and business. Whether you're looking for job openings 
+            or seeking investment opportunities, we are here to support your aspirations.</p>
+        `, 
+        pageLink: 'index.html' 
+    },
+    { 
+        id: 'events', 
+        name: 'Events', 
+        description: `
+            <p>Stay up to date with our upcoming events at Busaiga SACCO. From financial literacy seminars to community engagement programs, 
+            there's always something happening that you can be a part of.</p>
+        `, 
+        pageLink: 'index.html' 
+    }
 ];
+
+function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('hidden');
+}
 
 function showDialog(description, pageLink) {
     document.getElementById('dialog-description').innerHTML = description;
@@ -431,15 +523,36 @@ function handleSearch(event) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Set up "Learn More" buttons
     sections.forEach((section, index) => {
-        const button = document.querySelector(`button[onclick="showDialog(sections[${index}].description)"]`);
+        const button = document.querySelector(`#${section.id} button`);
         if (button) {
             button.onclick = () => showDialog(section.description, section.pageLink);
         }
     });
 
+    // Set up sidebar links
+    const sidebarLinks = document.querySelectorAll('#sidebar a');
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const sectionId = link.getAttribute('href').replace('.html', '');
+            const section = sections.find(sec => sec.id === sectionId);
+            if (section) {
+                showDialog(section.description, section.pageLink);
+                toggleSidebar();
+            }
+        });
+    });
+
+    // Set up dialog close button
     document.getElementById('dialog-close').addEventListener('click', closeDialog);
+
+    // Set up search form
+    document.querySelector('form').addEventListener('submit', handleSearch);
 });
+
+    
 </script>
 </body>
 
