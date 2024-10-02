@@ -382,57 +382,58 @@
         </div>
     </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const sections = [
-        { id: 'partnership', description: 'Partnerships are the backbone of our growth. Collaborate with us for mutual success.', pageLink: 'partnership.html' },
-        { id: 'opportunities', description: 'Explore a range of opportunities to grow your investments with Busaiga SACCO.', pageLink: 'opportunities.html' },
-        { id: 'events', description: 'Join us at our upcoming events to network, learn, and grow within the community.', pageLink: 'events.html' },
-        { id: 'savings', description: 'Secure your future by saving with Busaiga SACCO. We offer flexible savings plans.', pageLink: 'savings.html' },
-        { id: 'loans', description: 'Access affordable loans to meet your personal or business financial needs.', pageLink: 'loans.html' },
-        { id: 'service-centers', description: 'Our service centers are located across the country to serve you better.', pageLink: 'service-centers.html' },
-        { id: 'about', description: 'Learn more about Busaiga SACCO, our mission, and our team.', pageLink: 'about.html' },
-        { id: 'contact', description: 'Get in touch with us for any inquiries or support. We are here to help.', pageLink: 'contact.html' },
-        { id: 'gallery', description: 'View photos of our past events, partnerships, and activities.', pageLink: 'gallery.html' },
-        { id: 'mobile-payments', description: 'Conveniently pay for your services using mobile payments.', pageLink: 'mobile.html' },
-    ];
 
-    // Set up section buttons to open dialog boxes
-    sections.forEach((section) => {
-        const button = document.querySelector(`#${section.id} button`);
-        if (button) {
-            button.onclick = () => showDialog(section.description, section.pageLink);
+  
+
+<script>
+const sections = [
+    { id: 'partnership', description: 'Partnerships are the backbone of our growth. Collaborate with us for mutual success.', pageLink: 'partnership.html' },
+    { id: 'opportunities', description: 'Explore a range of opportunities to grow your investments with Busaiga SACCO.', pageLink: 'opportunities.html' },
+    { id: 'events', description: 'Join us at our upcoming events to network, learn, and grow within the community.', pageLink: 'events.html' },
+    { id: 'savings', description: 'Secure your future by saving with Busaiga SACCO. We offer flexible savings plans.', pageLink: 'savings.html' },
+    { id: 'loans', description: 'Access affordable loans to meet your personal or business financial needs.', pageLink: 'loans.html' },
+    { id: 'service-centers', description: 'Our service centers are located across the country to serve you better.', pageLink: 'service-centers.html' },
+    { id: 'about', description: 'Learn more about Busaiga SACCO, our mission, and our team.', pageLink: 'about.html' },
+    { id: 'contact', description: 'Get in touch with us for any inquiries or support. We are here to help.', pageLink: 'contact.html' },
+    { id: 'gallery', description: 'View photos of our past events, partnerships, and activities.', pageLink: 'gallery.html' },
+    { id: 'mobile-payments', description: 'Conveniently pay for your services using mobile payments.', pageLink: 'mobile.html' },
+];
+
+// Set up section buttons to open dialog boxes
+sections.forEach((section) => {
+    const button = document.querySelector(`#${section.id} button`);
+    if (button) {
+        button.onclick = () => showDialog(section.description, section.pageLink);
+    }
+});
+
+// Set up sidebar links
+const sidebarLinks = document.querySelectorAll('#sidebar a');
+sidebarLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+        const href = link.getAttribute('href');
+        if (href.includes('.html')) {
+            // Allow navigation for external links (e.g., about.html, contact.html)
+            return;
+        } else {
+            // Handle internal section navigation via dialog boxes
+            event.preventDefault();  // Prevent navigation
+            const sectionId = href.replace('#', '');  // Remove '#' from href to get section id
+            const section = sections.find(sec => sec.id === sectionId);
+            
+            if (section) {
+                showDialog(section.description, section.pageLink);  // Open the dialog box
+                toggleSidebar();  // Close the sidebar
+            }
         }
     });
-
-    // Set up sidebar links
-    const sidebarLinks = document.querySelectorAll('#sidebar a');
-    sidebarLinks.forEach(link => {
-        link.addEventListener('click', (event) => {
-            const href = link.getAttribute('href');
-            if (href.includes('.html')) {
-                // If the href points to an HTML page, allow navigation and close sidebar
-                toggleSidebar();
-            } else {
-                // This is a section link (with #), prevent navigation and open dialog
-                event.preventDefault();  // Prevent default link behavior
-                const sectionId = href.replace('#', '');  // Remove # from the href to get section id
-                const section = sections.find(sec => sec.id === sectionId);
-                
-                if (section) {
-                    showDialog(section.description, section.pageLink);  // Open the dialog box
-                    toggleSidebar();  // Close the sidebar
-                }
-            }
-        });
-    });
-
-    // Set up dialog close button
-    document.getElementById('dialog-close').addEventListener('click', closeDialog);
-
-    // Set up search form
-    document.querySelector('form').addEventListener('submit', handleSearch);
 });
+
+// Set up dialog close button
+document.getElementById('dialog-close').addEventListener('click', closeDialog);
+
+// Set up search form
+document.querySelector('form').addEventListener('submit', handleSearch);
 
 // Function to display the dialog box
 function showDialog(description, pageLink) {
