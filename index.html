@@ -383,6 +383,7 @@
     </div>
 <script>
 <script>
+<script>
 document.addEventListener('DOMContentLoaded', () => {
     const sections = [
         { id: 'partnership', description: 'Partnerships are the backbone of our growth. Collaborate with us for mutual success.', pageLink: 'partnership.html' },
@@ -409,18 +410,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebarLinks = document.querySelectorAll('#sidebar a');
     sidebarLinks.forEach(link => {
         link.addEventListener('click', (event) => {
-            const sectionId = link.getAttribute('href').replace('.html', '');
-            const section = sections.find(sec => sec.id === sectionId);
-            
-            if (section) {
-                // This link corresponds to a section that should open a dialog box
-                event.preventDefault();  // Prevent default link behavior
-                showDialog(section.description, section.pageLink);  // Open the dialog box
-                toggleSidebar();  // Close the sidebar
+            const href = link.getAttribute('href');
+            if (href.includes('.html')) {
+                // If the href points to an HTML page, allow navigation and close sidebar
+                toggleSidebar();
             } else {
-                // This is an external link (about.html, contact.html, etc.)
-                toggleSidebar();  // Close the sidebar after navigation
-                // Let the default behavior (navigating to the new page) happen
+                // This is a section link (with #), prevent navigation and open dialog
+                event.preventDefault();  // Prevent default link behavior
+                const sectionId = href.replace('#', '');  // Remove # from the href to get section id
+                const section = sections.find(sec => sec.id === sectionId);
+                
+                if (section) {
+                    showDialog(section.description, section.pageLink);  // Open the dialog box
+                    toggleSidebar();  // Close the sidebar
+                }
             }
         });
     });
@@ -470,6 +473,8 @@ function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
     sidebar.classList.toggle('hidden');  // Toggle sidebar visibility
 }
+</script>
+
 </script>
 
 
