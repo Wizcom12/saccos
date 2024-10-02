@@ -1,422 +1,556 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BUSAIGA SACCO - About Us</title>
+    <title>Busaiga SACCO</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
-    /* General Reset */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: #333;
-        line-height: 1.6;
-        background-color: #f4f4f4;
-    }
-
-    /* Layout and Container */
-    .container {
-        width: 90%;
-        margin: auto;
-        max-width: 1200px;
-    }
-
-    /* Header Styling */
-    header {
-        background-color: white;
-        color: gold;
-        padding: 1rem 0;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    header .logo {
-        width: 120px;
-        float: left;
-        border-radius: 50%;
-    }
-
-    header nav {
-        float: right;
-    }
-
-    header nav a {
-        color: gold;
-        text-decoration: none;
-        margin-left: 20px;
-        font-weight: bold;
-        font-size: 16px;
-        transition: color 0.3s ease;
-    }
-
-    header nav a:hover {
-        color: #0275d8;
-    }
-
-    /* Menu Icon for mobile */
-    .menu-icon {
-        display: none;
-        float: right;
-        cursor: pointer;
-        z-index: 1000;
-        margin-right: 15px;
-    }
-
-    .menu-icon .bar {
-        width: 25px;
-        height: 3px;
-        background-color: gold;
-        margin: 5px 0;
-        transition: 0.4s;
-    }
-
-    /* Rotate first bar */
-    .change .bar:nth-child(1) {
-        transform: rotate(-45deg) translate(-5px, 6px);
-    }
-
-    /* Fade out the second bar */
-    .change .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    /* Rotate last bar */
-    .change .bar:nth-child(3) {
-        transform: rotate(45deg) translate(-5px, -6px);
-    }
-
-    /* Sidebar Styling */
-    .sidebar {
-        height: 75%;
-        width: 0;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        right: 0;
-        background-color: white;
-        overflow-x: hidden;
-        transition: 0.5s;
-        padding-top: 40px;
-        border-radius: 4px;
-        box-shadow: -2px 0 5px rgba(0,0,0,0.1);
-    }
-
-    .sidebar a {
-        padding: 8px 8px 8px 32px;
-        text-decoration: none;
-        font-size: 20px;
-        color: #ffcc00;
-        display: block;
-        transition: 0.3s;
-    }
-
-    .sidebar a:hover {
-        color: #0275d8;
-    }
-
-    .sidebar .closebtn {
-        position: absolute;
-        top: 0;
-        right: 25px;
-        font-size: 36px;
-        margin-left: 50px;
-    }
-
-    /* Main Section Styling */
-    main {
-        background-color: white;
-        padding: 2rem;
-        margin: 60px 20px;
-        border-radius: 10px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    main h1, main h2 {
-        color: #0275d8;
-    }
-
-    main p {
-        font-size: 18px;
-        margin-bottom: 1.5rem;
-    }
-
-    main ul {
-        list-style-type: none;
-        padding-left: 0;
-    }
-
-    main ul li {
-        font-size: 18px;
-        background-color: #e9ecef;
-        margin-bottom: 10px;
-        padding: 10px;
-        border-left: 5px solid #0275d8;
-        border-radius: 5px;
-    }
-
-    /* Section Styling */
-    section {
-        margin-bottom: 2rem;
-    }
-
-    button {
-        background-color: #0275d8;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        font-size: 16px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-        background-color: #025aa5;
-    }
-
-    /* Modal Styling */
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .modal-content {
-        background-color: white;
-        margin: 10% auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%;
-        max-width: 600px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-        cursor: pointer;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: #000;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    /* Footer Styling */
-    footer {
-        background-color: #0275d8;
-        color: white;
-        padding: 2rem 0;
-        text-align: center;
-        margin-top: 2rem;
-    }
-
-    footer p {
-        margin-bottom: 0.5rem;
-    }
-
-    footer a {
-        color: #ffcc00;
-        text-decoration: none;
-        font-weight: bold;
-        transition: color 0.3s ease;
-    }
-
-    footer a:hover {
-        color: #ffc107;
-    }
-
-    /* Responsive Layout */
-    @media screen and (max-width: 768px) {
-        header nav {
-            display: none;
+        body {
+            background-color: #f3f4f6;
         }
 
-        .menu-icon {
+        #dialog {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        #dialog-content {
+            opacity: 1;
+        }
+
+        #dialog {
+            opacity: 1;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            background-color: #000;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            width: 90%;
+            height: 20px;
+            background-color: #333;
+            position: relative;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: #4caf50;
+        }
+
+        .progress-number {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 12px;
+        }
+
+        .dialog-footer-link {
+            text-align: center;
+            background-color: black;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
             display: block;
-        }
-
-        .logo {
-            float: none;
-            display: block;
-            margin: auto;
-        }
-
-        main {
-            padding: 1rem;
-        }
-
-        .container {
             width: 100%;
         }
+        
+        H3{color: blue }
+        Footer h3{ color: white}
 
-        .modal-content {
-            width: 90%;
-        }
-    }
-
-    /* Utility Classes */
-    .text-center {
-        text-align: center;
-    }
-
-    .text-left {
-        text-align: left;
-    }
     </style>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <img src="logo.jpg" alt="BUSAIGA SACCO Logo" class="logo">
-            <!-- Menu Icon for Small Screens -->
-            <div class="menu-icon" onclick="toggleSidebar()">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
+
+<body class="min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center mb-4 md:mb-0">
+                <img src="logo.Jpg" alt="Busaiga SACCO Logo" class="mr-2">
+                <h1 class="text-2xl font-bold text-blue-600">Busaiga SACCO</h1>
             </div>
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="savings.html">Savings Products</a>
-                <a href="loans.html">Loan Products</a>
-                <a href="service-centers.html">Service Centers</a>
-                <a href="opportunities.html">Opportunities</a>
-                <a href="events.html">Events</a>   
-                <a href="mobile.html">Mobile Transactions</a>
-                <a href="contact.html">Contact Us</a>
-                <a href="gallery.html">Gallery</a>
-            </nav>
+            <form class="flex items-center space-x-2 w-full md:w-auto" onsubmit="handleSearch(event)">
+                <input type="text" placeholder="Search..." class="px-4 py-2 border rounded-lg w-full md:w-auto" id="search-input">
+                <button type="submit" class="p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </button>
+            </form>
+            <button class="md:hidden mt-4 md:mt-0" onclick="toggleSidebar()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
         </div>
     </header>
 
-    <!-- Sidebar -->
-    <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
-        <a href="index.html">Home</a>
-        <a href="savings.html">Savings Products</a>
-        <a href="loans.html">Loan Products</a>
-        <a href="service-centres.html">Service Centres</a>
-        <a href="mobile.html">Mobile Transactions</a>
-        <a href="opportunities.html">Opportunities</a>
-        <a href="events.html">Events</a> 
-        <a href="contact.html">Contact Us</a>
-        <a href="gallery.html">Gallery</a>
+    <!-- Sidebar for small screens -->
+    <div id="sidebar" class="fixed inset-0 bg-gray-600 bg-opacity-75 z-50 hidden">
+        <div class="bg-white h-full w-64 p-4 overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-bold">Menu</h2>
+                <button onclick="toggleSidebar()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <ul class="space-y-2">
+                <li><a href="savings.html" class="block hover:bg-gray-100 rounded p-2">Savings</a></li>
+                <li><a href="loans.html" class="block hover:bg-gray-100 rounded p-2">Loans</a></li>
+                <li><a href="service-centers.html" class="block hover:bg-gray-100 rounded p-2">Service Centers</a></li>
+                <li><a href="about.html" class="block hover:bg-gray-100 rounded p-2">About Us</a></li>
+                <li><a href="contact.html" class="block hover:bg-gray-100 rounded p-2">Contact Us</a></li>
+                <li><a href="gallery.html" class="block hover:bg-gray-100 rounded p-2">Gallery</a></li>
+                <li><a href="mobile.htm" class="block hover:bg-gray-100 rounded p-2">Mobile Payments</a></li>
+                <li><a href="#partnership" class="block hover:bg-gray-100 rounded p-2">Partnership</a></li>
+                <li><a href="#opportunities" class="block hover:bg-gray-100 rounded p-2">Opportunities</a></li>
+                <li><a href="#events" class="block hover:bg-gray-100 rounded p-2">Events</a></li>
+            </ul>
+        </div>
     </div>
 
-    <main>
-        <section id="background">
-            <h1>About Us</h1>
-            <p>Busaiga SACCO started in 1991 as a small ROSCA and grew into a registered financial cooperative in 2006.</p>
-            <p>Serving communities in Western Uganda, Busaiga SACCO has evolved to provide affordable savings and credit services.</p>
+    <!-- Introduction -->
+    <div class="bg-blue-600 text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Welcome to Busaiga SACCO</h2>
+            <p class="text-xl">Empowering our community through financial growth and stability.</p>
+        </div>
+    </div>
+    
+    
 
-            <h2>Key Performance (2023)</h2>
-            <ul>
-            
-                            <li>Membership: <strong>3,789</strong></li>
-                <li>Loans disbursed: <strong>UGX 1.5 billion</strong></li>
-                <li>Assets: <strong>UGX 2.7 billion</strong></li>
-                <li>Branches: <strong>5</strong></li>
-            </ul>
-        </section>
-
-        <section id="our-mission">
-            <h2>Our Mission</h2>
-            <p>To promote financial inclusion by offering affordable and accessible savings and credit services to the rural community, while fostering economic empowerment and self-sufficiency.</p>
-        </section>
-
-        <section id="values">
-            <h2>Our Core Values</h2>
-            <ul>
-                <li>Integrity</li>
-                <li>Transparency</li>
-                <li>Member Empowerment</li>
-                <li>Inclusivity</li>
-            </ul>
-        </section>
-
-        <section id="leadership">
-            <h2>Leadership</h2>
-            <p>Our SACCO is governed by a board of directors elected by the members. The board ensures that the SACCO adheres to its mission, vision, and values, and that it complies with regulations.</p>
-        </section>
-
-        <button id="openModalBtn">Learn More About Us</button>
-
-        <!-- Modal -->
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>History of Busaiga SACCO</h2>
-                <p>Busaiga SACCO began as a small savings and credit association formed by local farmers in 1991. As the demand for financial services grew, it became a fully registered cooperative in 2006. Over the years, the SACCO has grown to serve thousands of members and expanded its services across the region.</p>
+   
+  <main class="container mx-auto px-4 py-8" id="main-content">
+    <!-- Savings Section -->
+    <section id="savings" class="mb-8 border-2 border-gray-300 p-6 rounded-lg">
+        <div class="flex flex-col md:flex-row items-center">
+            <img src="savings.jpeg" alt="Savings" class="w-full md:w-1/3 mb-4 md:mb-0 md:mr-4">
+            <div>
+                <h3 class="text-2xl font-bold mb-2">Savings</h3>
+                <p>Our savings plans help you secure a better financial future. Enjoy higher returns and flexibility.</p>
+                <button onclick="showDialog(sections[0].description)" class="mt-4 px-4 py-2 bg-gray-800 text-white rounded hover:bg-blue-600">
+                    Learn More
+                </button>
             </div>
         </div>
-    </main>
+    </section>
 
-    <footer>
-        <div class="container">
-            <div class="footer-block">
-                <p>Address: Plot 12, Main Street, Fort Portal, Uganda</p>
+    <!-- Loans Section -->
+    <section id="loans" class="mb-8 border-2 border-gray-300 p-6 rounded-lg">
+        <div class="flex flex-col md:flex-row items-center">
+            <img src="loans.jpeg" alt="Loans" class="w-full md:w-1/3 mb-4 md:mb-0 md:mr-4">
+            <div>
+                <h3 class="text-2xl font-bold mb-2">Loans</h3>
+                <p>Get flexible loan options that fit your needs, whether for personal or business growth.</p>
+                <button onclick="showDialog(sections[1].description)" class="mt-4 px-4 py-2 bg-gray-800 text-white rounded hover:bg-blue-600">
+                    Learn More
+                </button>
             </div>
-            <div class="footer-block">
-                <p>Email: info@busaigasacco.com</p>
+        </div>
+    </section>
+
+    <!-- Service Centers Section -->
+    <section id="service-centers" class="mb-8 border-2 border-gray-300 p-6 rounded-lg">
+        <div class="flex flex-col md:flex-row items-center">
+            <img src="service.png" alt="Service Centers" class="w-full md:w-1/3 mb-4 md:mb-0 md:mr-4">
+            <div>
+                <h3 class="text-2xl font-bold mb-2">Service Centers</h3>
+                <p>Our service centers are located across various regions to serve you better.</p>
+                <button onclick="showDialog(sections[2].description)" class="mt-4 px-4 py-2 bg-gray-800 text-white rounded hover:bg-blue-600">
+                    Learn More
+                </button>
             </div>
-            <div class="footer-block">
-                <p>Phone: +256 789 123 456</p>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about-us" class="mb-8 border-2 border-gray-300 p-6 rounded-lg">
+        <div class="flex flex-col md:flex-row items-center">
+            <img src="about.jpeg" alt="About Us" class="w-full md:w-1/3 mb-4 md:mb-0 md:mr-4">
+            <div>
+                <h3 class="text-2xl font-bold mb-2">About Us</h3>
+                <p>Learn more about Busaiga SACCO, our vision, and our impact on the community.</p>
+                <button onclick="showDialog(sections[3].description)" class="mt-4 px-4 py-2 bg-gray-800 text-white rounded hover:bg-blue-600">
+                    Learn More
+                </button>
             </div>
-            <div class="footer-block">
-                <p>&copy; 2024 Busaiga SACCO. All Rights Reserved.</p>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact-us" class="mb-8 border-2 border-gray-300 p-6 rounded-lg">
+        <div class="flex flex-col md:flex-row items-center">
+            <img src="contact.jpeg" alt="Contact Us" class="w-full md:w-1/3 mb-4 md:mb-0 md:mr-4">
+            <div>
+                <h3 class="text-2xl font-bold mb-2">Contact Us</h3>
+                <p>Get in touch with us for more information about our services and how we can assist you.</p>
+                <button onclick="showDialog(sections[4].description)" class="mt-4 px-4 py-2 bg-gray-800 text-white rounded hover:bg-blue-600">
+                    Learn More
+                </button>
             </div>
+        </div>
+    </section>
+    
+    <!-- Gallery Section -->
+<section id="gallery" class="mb-8 border-2 border-gray-300 p-6 rounded-lg">
+    <div class="flex flex-col md:flex-row items-center">
+        <img src="gallery.png" alt="Gallery" class="w-full md:w-1/3 mb-4 md:mb-0 md:mr-4">
+        <div>
+            <h3 class="text-2xl font-bold mb-2">Gallery</h3>
+            <p>Explore our gallery showcasing our events and community involvement.</p>
+            <button onclick="showDialog(sections[5].description)" class="mt-4 px-4 py-2 bg-gray-800 text-white rounded hover:bg-blue-600">
+                Learn More
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Mobile Payments Section -->
+<section id="mobile-payments" class="mb-8 border-2 border-gray-300 p-6 rounded-lg">
+    <div class="flex flex-col md:flex-row items-center">
+        <img src="mobile.png" alt="Mobile Payments" class="w-full md:w-1/3 mb-4 md:mb-0 md:mr-4">
+        <div>
+            <h3 class="text-2xl font-bold mb-2">Mobile Payments</h3>
+            <p>Learn about our mobile payment solutions for easier transactions.</p>
+            <button onclick="showDialog(sections[6].description)" class="mt-4 px-4 py-2 bg-gray-800 text-white rounded hover:bg-blue-600">
+                Learn More
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- partnership Section -->
+<section id="opportunities" class="mb-8 border-2 border-gray-300 p-6 rounded-lg">
+    <div class="flex flex-col md:flex-row items-center">
+        <img src="partnership.jpeg" alt="partnership" class="w-full md:w-1/3 mb-4 md:mb-0 md:mr-4">
+        <div>
+            <h3 class="text-2xl font-bold mb-2">Partnerships </h3>
+            <p>
+            Learn about our partnerships and how they contribute to our mission.
+            
+            
+            </p>
+            <button onclick="showDialog(sections[7].description)" class="mt-4 px-4 py-2 bg-gray-800 text-white rounded hover:bg-blue-600">
+                Learn More
+            </button>
+        </div>
+    </div>
+</section>
+
+
+<!-- Events Section -->
+<section id="partnership" class="mb-8 border-2 border-gray-300 p-6 rounded-lg">
+    <div class="flex flex-col md:flex-row items-center">
+        <img src="events.jpeg" alt="events" class="w-full md:w-1/3 mb-4 md:mb-0 md:mr-4">
+        <div>
+            <h3 class="text-2xl font-bold mb-2">Events </h3>
+            <p>
+            
+            
+            Join us for various events and community gatherings throughout the year.
+            
+            
+            
+            
+            </p>
+            <button onclick="showDialog(sections[9].description)" class="mt-4 px-4 py-2 bg-gray-800 text-white rounded hover:bg-blue-600">
+                Learn More
+            </button>
+        </div>
+    </div>
+</section>
+
+    <!-- opportunities Section -->
+<section id="events" class="mb-8 border-2 border-gray-300 p-6 rounded-lg">
+    <div class="flex flex-col md:flex-row items-center">
+        <img src="opportunities.jpeg" alt="opportunities " class="w-full md:w-1/3 mb-4 md:mb-0 md:mr-4">
+        <div>
+            <h3 class="text-2xl font-bold mb-2">Opportunities </h3>
+            <p>
+            
+            Discover various opportunities available for our members and community.
+            
+            </p>
+            <button onclick="showDialog(sections[8].description)" class="mt-4 px-4 py-2 bg-gray-800 text-white rounded hover:bg-blue-600">
+                Learn More
+            </button>
+        </div>
+    </div>
+</section>
+
+    
+    
+    
+
+    <!-- Progress Bars Section -->
+    <section id="progress-bars" class="mb-8 border-2 border-gray-300 p-6 rounded-lg">
+        <div class="flex flex-col md:flex-row items-center">
+            <h3 class="text-2xl font-bold mb-4 w-full">Progress Overview since 2020</h3>
+            <div class="w-full">
+                <div class="progress-container mb-4">
+                    <span class="text-lg font-semibold">Savings Progress</span>
+                    <div class="progress-bar bg-black h-4 rounded relative">
+                        <div class="progress-fill bg-blue-500 h-4 w-3/4 rounded"></div>
+                        <span class="absolute right-2 text-white">75%</span>
+                    </div>
+                </div>
+                <div class="progress-container mb-4">
+                    <span class="text-lg font-semibold">Loans Disbursement</span>
+                    <div class="progress-bar bg-black h-4 rounded relative">
+                        <div class="progress-fill bg-green-500 h-4 w-2/3 rounded"></div>
+                        <span class="absolute right-2 text-white">67%</span>
+                    </div>
+                </div>
+                <div class="progress-container mb-4">
+                    <span class="text-lg font-semibold">Service Center Coverage</span>
+                    <div class="progress-bar bg-black h-4 rounded relative">
+                        <div class="progress-fill bg-yellow-500 h-4 w-1/2 rounded"></div>
+                        <span class="absolute right-2 text-white">50%</span>
+                    </div>
+                </div>
+                <div class="progress-container">
+                    <span class="text-lg font-semibold">Community Impact</span>
+                    <div class="progress-bar bg-black h-4 rounded relative">
+                        <div class="progress-fill bg-red-500 h-4 w-1/3 rounded"></div>
+                        <span class="absolute right-2 text-white">33%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div>
+                <h3 class="font-semibold text-lg mb-2">About Busaiga SACCO</h3>
+                <p>Busaiga SACCO is dedicated to empowering individuals through financial growth and development.</p>
+            </div>
+            <div>
+                <h3 class="font-semibold text-lg mb-2">Quick Links</h3>
+                <ul>
+                    <li><a href="savings.html" class="hover:underline">Savings</a></li>
+                    <li><a href="loans.html" class="hover:underline">Loans</a></li>
+                    <li><a href="service-centers.html" class="hover:underline">Service Centers</a></li>
+                    <li><a href="about.html" class="hover:underline">About Us</a></li>
+                    <li><a href="contact.html" class="hover:underline">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-semibold text-lg mb-2">Contact Us</h3>
+                <p>Email: busaigasacco@gmail.com</p>
+                <p>Phone: 0393254703</p>
+                <p>Address: P.O.Box 980, Harugongo, Kabarole District</p>
+            </div>
+            <div>
+                <h3 class="font-semibold text-lg mb-2">Follow Us</h3>
+                <ul class="flex space-x-4">
+                    <li><a href="#" class="hover:underline">Facebook</a></li>
+                    <li><a href="#" class="hover:underline">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+
+                
+        <div class="mt-8 text-center border-t border-gray-700 pt-4">
+            <p>&copy; 2024 Busaiga SACCO. All Rights Reserved.</p>
+                  <p> Designed by: Wizcom Developer.</p>
         </div>
     </footer>
 
+    <!-- Dialog box template -->
+    <div id="dialog" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+        <div id="dialog-content" class="bg-white p-8 w-full max-w-lg rounded-lg relative">
+            <button onclick="closeDialog()" class="absolute top-4 right-4 text-gray-600 hover:text-gray-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <div id="dialog-description" class="mb-4"></div>
+            <a href="#" id="view-full-page-link" class="dialog-footer-link">View Full Page</a>
+        </div>
+    </div>
+
     <script>
-    // Toggle Sidebar
-    function toggleSidebar() {
-        var sidebar = document.getElementById("mySidebar");
-        var menuIcon = document.querySelector('.menu-icon');
-        if (sidebar.style.width === "250px") {
-            sidebar.style.width = "0";
-            menuIcon.classList.remove("change");
-        } else {
-            sidebar.style.width = "250px";
-            menuIcon.classList.add("change");
+   
+  const sections = [
+    { 
+        id: 'savings', 
+        name: 'Savings', 
+        description: `
+            <p>Busaiga SACCO offers competitive savings accounts with great interest rates to help you grow your finances. 
+            Whether you're saving for a short-term goal or building a long-term nest egg, our savings options provide flexibility and security.</p>
+            <p>We also offer fixed deposit accounts and savings groups for community-based projects, making us your ideal financial partner.</p>
+        `, 
+        pageLink: 'savings.html' 
+    },
+    { 
+        id: 'loans', 
+        name: 'Loans', 
+        description: `
+            <p>At Busaiga SACCO, we provide personal, business, and agriculture loans tailored to your needs. Our loan products come with flexible 
+            repayment terms and competitive interest rates, ensuring that you can achieve your financial goals without strain.</p>
+            <p>Talk to our loan officers to learn more about loan options, eligibility, and how to apply.</p>
+        `, 
+        pageLink: 'loans.html' 
+    },
+    { 
+        id: 'service-centers', 
+        name: 'Service Centers', 
+        description: `
+            <p>Our service centers are conveniently located to serve our members across the region. At each service center, you can access our full range of 
+            financial services including deposits, withdrawals, loan applications, and financial advice from our dedicated staff.</p>
+            <p>Find the nearest service center and enjoy fast, reliable service.</p>
+        `, 
+        pageLink: 'service-centers.html' 
+    },
+    { 
+        id: 'about-us', 
+        name: 'About Us', 
+        description: `
+            <h4><Strong>Achievements From 2020</Strong> SACCO:</h4> <br>
+            <div class="progress-bar">
+                <div class="progress" style="width: 70%;">Savings</div>
+                <div class="progress-number">70%</div>
+                
+            </div>
+            <br>
+            <div class="progress-bar mt-4">
+                <div class="progress" style="width: 85%;">Loans disbursed </div>
+                <div class="progress-number">85%</div>
+               
+            </div> <br>
+            <p>Busaiga SACCO is committed to empowering individuals and communities through sustainable financial solutions. 
+            Since our inception, we have expanded our services to reach thousands of members, offering both savings and loan products to uplift livelihoods.</p>
+            <p>Our mission is to foster economic development and financial inclusion in our community, providing financial education and support for personal 
+            and business growth.</p>
+        `, 
+        pageLink: 'about.html' 
+    },
+    { 
+        id: 'contact-us', 
+        name: 'Contact Us', 
+        description: `
+            <p>If you have any questions or need assistance, feel free to contact us through our customer service hotline or visit any of our service centers. 
+            Our dedicated team is always ready to assist you with your financial needs.</p>
+        `, 
+        pageLink: 'contact.html' 
+    },
+    { 
+        id: 'gallery', 
+        name: 'Gallery', 
+        description: `
+            <p>Check out the gallery of our events and activities at Busaiga SACCO. From community outreach programs to member appreciation days, 
+            we take pride in documenting and sharing our journey with you.</p>
+        `, 
+        pageLink: 'gallery.html' 
+    },
+    { 
+        id: 'mobile-payments', 
+        name: 'Mobile Payments', 
+        description: `
+            <p>We provide mobile payment options to make it easier for you to manage your SACCO transactions from anywhere. With our mobile payment platforms, 
+            you can deposit, withdraw, and even make loan payments at your convenience.</p>
+            <p>Enjoy financial freedom with just a few taps on your phone.</p>
+        `, 
+        pageLink: 'mobile.html' 
+    },
+    { 
+        id: 'partnership', 
+        name: 'Partnership', 
+        description: `
+            <p>Busaiga SACCO believes in the power of partnerships. We collaborate with local businesses, organizations, and other SACCOs to create 
+            opportunities that benefit our members and the community at large.</p>
+            <p>Learn more about our partnerships and how we can work together to achieve mutual success.</p>
+        `, 
+        pageLink: '#partnership' 
+    },
+    { 
+        id: 'opportunities', 
+        name: 'Opportunities', 
+        description: `
+            <p>At Busaiga SACCO, we offer opportunities for growth in both employment and business. Whether you're looking for job openings 
+            or seeking investment opportunities, we are here to support your aspirations.</p>
+        `, 
+        pageLink: '#opportunities' 
+    },
+    { 
+        id: 'events', 
+        name: 'Events', 
+        description: `
+            <p>Stay up to date with our upcoming events at Busaiga SACCO. From financial literacy seminars to community engagement programs, 
+            there's always something happening that you can be a part of.</p>
+        `, 
+        pageLink: '#events' 
+    }
+];
+
+
+function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('hidden');
         }
-    }
 
-    // Modal Logic
-    var modal = document.getElementById("myModal");
-    var btn = document.getElementById("openModalBtn");
-    var span = document.getElementsByClassName("close")[0];
-
-    btn.onclick = function() {
-        modal.style.display = "block";
-    }
-
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-        if (event.target === modal) {
-            modal.style.display = "none";
+        function showDialog(description) {
+            document.getElementById('dialog-description').innerHTML = description;
+            document.getElementById('dialog').classList.remove('hidden');
+            document.getElementById('main-content').style.opacity = '0.5';
         }
+
+function handleSearch(event) {
+    event.preventDefault();
+    const query = document.getElementById('search-input').value.toLowerCase();
+    const section = sections.find(sec => sec.name.toLowerCase().includes(query));
+    if (section) {
+        showDialog(section.description, section.pageLink);
+        document.getElementById(section.id).scrollIntoView({ behavior: 'smooth' });
+    } else {
+        alert('Section not found');
     }
-    </script>
+}
+
+function showDialog(description, pageLink) {
+    document.getElementById('dialog-description').innerHTML = description;
+    document.getElementById('view-full-page-link').setAttribute('href', pageLink);
+    document.getElementById('dialog').classList.remove('hidden');
+    document.getElementById('main-content').style.opacity = '0.5';
+}
+
+function closeDialog() {
+    document.getElementById('dialog').classList.add('hidden');
+    document.getElementById('main-content').style.opacity = '1';
+}
+
+document.querySelectorAll('.learn-more').forEach(button => {
+    button.addEventListener('click', event => {
+        const sectionId = event.target.getAttribute('data-section-id');
+        const section = sections.find(sec => sec.id === sectionId);
+        if (section) {
+            showDialog(section.description, section.pageLink);
+        }
+    });
+});
+
+document.getElementById('dialog-close').addEventListener('click', closeDialog);
+
+
+   
+       </script>
 </body>
+
 </html>
 
                 
+
+                
+        
