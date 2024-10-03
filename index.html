@@ -381,101 +381,181 @@
             <a href="#" id="view-full-page-link" class="dialog-footer-link">View Full Page</a>
         </div>
     </div>
-
-
-  
 <script>
-// Array containing section information
+
+
 const sections = [
-    { id: 'partnership', description: 'Partnerships are the backbone of our growth. Collaborate with us for mutual success.', pageLink: 'partnership.html' },
-    { id: 'opportunities', description: 'Explore a range of opportunities to grow your investments with Busaiga SACCO.', pageLink: 'opportunities.html' },
-    { id: 'events', description: 'Join us at our upcoming events to network, learn, and grow within the community.', pageLink: 'events.html' },
-    { id: 'savings', description: 'Secure your future by saving with Busaiga SACCO. We offer flexible savings plans.', pageLink: 'savings.html' },
-    { id: 'loans', description: 'Access affordable loans to meet your personal or business financial needs.', pageLink: 'loans.html' },
-    { id: 'service-centers', description: 'Our service centers are located across the country to serve you better.', pageLink: 'service-centers.html' },
-    { id: 'about', description: 'Learn more about Busaiga SACCO, our mission, and our team.', pageLink: 'about.html' },
-    { id: 'contact', description: 'Get in touch with us for any inquiries or support. We are here to help.', pageLink: 'contact.html' },
-    { id: 'gallery', description: 'View photos of our past events, partnerships, and activities.', pageLink: 'gallery.html' },
-    { id: 'mobile-payments', description: 'Conveniently pay for your services using mobile payments.', pageLink: 'mobile.html' },
+    { 
+        id: 'savings', 
+        name: 'Savings', 
+        description: `
+            <p>Busaiga SACCO offers competitive savings accounts with great interest rates to help you grow your finances. 
+            Whether you're saving for a short-term goal or building a long-term nest egg, our savings options provide flexibility and security.</p>
+            <p>We also offer fixed deposit accounts and savings groups for community-based projects, making us your ideal financial partner.</p>
+        `, 
+        pageLink: 'savings.html' 
+    },
+    { 
+        id: 'loans', 
+        name: 'Loans', 
+        description: `
+            <p>At Busaiga SACCO, we provide personal, business, and agriculture loans tailored to your needs. Our loan products come with flexible 
+            repayment terms and competitive interest rates, ensuring that you can achieve your financial goals without strain.</p>
+            <p>Talk to our loan officers to learn more about loan options, eligibility, and how to apply.</p>
+        `, 
+        pageLink: 'loans.html' 
+    },
+    { 
+        id: 'service-centers', 
+        name: 'Service Centers', 
+        description: `
+            <p>Our service centers are conveniently located to serve our members across the region. At each service center, you can access our full range of 
+            financial services including deposits, withdrawals, loan applications, and financial advice from our dedicated staff.</p>
+            <p>Find the nearest service center and enjoy fast, reliable service.</p>
+        `, 
+        pageLink: 'service-centers.html' 
+    },
+    { 
+        id: 'about-us', 
+        name: 'About Us', 
+        description: `
+            <h4><Strong>Achievements From 2020</Strong> SACCO:</h4> <br>
+            <div class="progress-bar">
+                <div class="progress" style="width: 70%;">Savings</div>
+                <div class="progress-number">70%</div>
+            </div>
+            <br>
+            <div class="progress-bar mt-4">
+                <div class="progress" style="width: 85%;">Loans disbursed </div>
+                <div class="progress-number">85%</div>
+            </div> <br>
+            <p>Busaiga SACCO is committed to empowering individuals and communities through sustainable financial solutions. 
+            Since our inception, we have expanded our services to reach thousands of members, offering both savings and loan products to uplift livelihoods.</p>
+            <p>Our mission is to foster economic development and financial inclusion in our community, providing financial education and support for personal 
+            and business growth.</p>
+        `, 
+        pageLink: 'about.html' 
+    },
+    { 
+        id: 'contact-us', 
+        name: 'Contact Us', 
+        description: `
+            <p>If you have any questions or need assistance, feel free to contact us through our customer service hotline or visit any of our service centers. 
+            Our dedicated team is always ready to assist you with your financial needs.</p>
+        `, 
+        pageLink: 'contact.html' 
+    },
+    { 
+        id: 'gallery', 
+        name: 'Gallery', 
+        description: `
+            <p>Check out the gallery of our events and activities at Busaiga SACCO. From community outreach programs to member appreciation days, 
+            we take pride in documenting and sharing our journey with you.</p>
+        `, 
+        pageLink: 'gallery.html' 
+    },
+    { 
+        id: 'mobile-payments', 
+        name: 'Mobile Payments', 
+        description: `
+            <p>We provide mobile payment options to make it easier for you to manage your SACCO transactions from anywhere. With our mobile payment platforms, 
+            you can deposit, withdraw, and even make loan payments at your convenience.</p>
+            <p>Enjoy financial freedom with just a few taps on your phone.</p>
+        `, 
+        pageLink: 'mobile.html' 
+    },
+    { 
+        id: 'partnership', 
+        name: 'Partnership', 
+        description: `
+            <p>Busaiga SACCO believes in the power of partnerships. We collaborate with local businesses, organizations, and other SACCOs to create 
+            opportunities that benefit our members and the community at large.</p>
+            <p>Learn more about our partnerships and how we can work together to achieve mutual success.</p>
+        `, 
+        pageLink: 'index.html' 
+    },
+    { 
+        id: 'opportunities', 
+        name: 'Opportunities', 
+        description: `
+            <p>At Busaiga SACCO, we offer opportunities for growth in both employment and business. Whether you're looking for job openings 
+            or seeking investment opportunities, we are here to support your aspirations.</p>
+        `, 
+        pageLink: 'index.html' 
+    },
+    { 
+        id: 'events', 
+        name: 'Events', 
+        description: `
+            <p>Stay up to date with our upcoming events at Busaiga SACCO. From financial literacy seminars to community engagement programs, 
+            there's always something happening that you can be a part of.</p>
+        `, 
+        pageLink: 'index.html' 
+    }
 ];
 
-// Set up section buttons (Learn More) to open dialog boxes
-sections.forEach((section) => {
-    const button = document.querySelector(`#${section.id} button`);
-    if (button) {
-        button.onclick = () => showDialog(section.description, section.pageLink);
-    }
-});
+function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('hidden');
+}
 
-// Set up sidebar links
-const sidebarLinks = document.querySelectorAll('#sidebar a');
-sidebarLinks.forEach(link => {
-    link.addEventListener('click', (event) => {
-        const href = link.getAttribute('href');
-        if (href.includes('.html')) {
-            // Allow navigation for external links (e.g., about.html, contact.html)
-            return;
-        } else {
-            // Handle internal section navigation via dialog boxes
-            event.preventDefault();  // Prevent navigation
-            const sectionId = href.replace('#', '');  // Remove '#' from href to get section id
-            const section = sections.find(sec => sec.id === sectionId);
-            
-            if (section) {
-                showDialog(section.description, section.pageLink);  // Open the dialog box
-                toggleSidebar();  // Close the sidebar
-            }
+function showDialog(description, pageLink) {
+    document.getElementById('dialog-description').innerHTML = description;
+    document.getElementById('view-full-page-link').href = pageLink;
+    document.getElementById('dialog').classList.remove('hidden');
+    document.getElementById('main-content').style.opacity = '0.5';
+}
+
+function closeDialog() {
+    document.getElementById('dialog').classList.add('hidden');
+    document.getElementById('main-content').style.opacity = '1';
+}
+
+function handleSearch(event) {
+    event.preventDefault();
+    const query = document.getElementById('search-input').value.toLowerCase();
+    const section = sections.find(sec => sec.name.toLowerCase().includes(query));
+    if (section) {
+        showDialog(section.description, section.pageLink);
+    } else {
+        alert('Section not found');
+    }
+}
+
+function navigateToPage(pageLink) {
+    window.location.href = pageLink;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Set up "Learn More" buttons
+    sections.forEach((section) => {
+        const button = document.querySelector(`#${section.id} button`);
+        if (button) {
+            button.onclick = () => showDialog(section.description, section.pageLink);
         }
     });
+
+    // Set up sidebar links
+    const sidebarLinks = document.querySelectorAll('#sidebar a');
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const sectionId = link.getAttribute('href').replace('.html', '');
+            const section = sections.find(sec => sec.id === sectionId);
+            if (section) {
+                navigateToPage(section.pageLink);
+            }
+        });
+    });
+
+    // Set up dialog close button
+    document.getElementById('dialog-close').addEventListener('click', closeDialog);
+
+    // Set up search form
+    document.querySelector('form').addEventListener('submit', handleSearch);
 });
 
-// Set up dialog close button
-document.getElementById('dialog-close').addEventListener('click', closeDialog);
 
-// Set up search form functionality
-document.querySelector('form').addEventListener('submit', handleSearch);
-
-// Function to display the dialog box
-function showDialog(description, pageLink) {
-    const dialog = document.getElementById('dialog');
-    const dialogDescription = document.getElementById('dialog-description');
-    const dialogPageLink = document.getElementById('dialog-page-link');
-
-    dialogDescription.textContent = description;  // Set the dialog description
-    dialogPageLink.href = pageLink;  // Set the 'View Full Page' link
-
-    dialog.classList.remove('hidden');  // Show the dialog box
-    document.body.classList.add('dialog-open');  // Add class to indicate dialog is open
-}
-
-// Function to close the dialog box
-function closeDialog() {
-    const dialog = document.getElementById('dialog');
-    dialog.classList.add('hidden');  // Hide the dialog box
-    document.body.classList.remove('dialog-open');  // Remove class when dialog is closed
-}
-
-// Function to handle search submissions
-function handleSearch(event) {
-    event.preventDefault();  // Prevent default form submission
-    const searchInput = document.getElementById('search-input').value.toLowerCase();
-    const matchingSection = sections.find(section => section.description.toLowerCase().includes(searchInput));
-
-    if (matchingSection) {
-        showDialog(matchingSection.description, matchingSection.pageLink);  // Show the matched section dialog
-    } else {
-        alert('No matching section found.');  // Show an alert if no match is found
-    }
-}
-
-// Function to toggle the sidebar visibility on small screens
-function toggleSidebar() {
-    const sidebar = document.getElementById('sidebar');
-    sidebar.classList.toggle('hidden');  // Toggle sidebar visibility
-}
 </script>
-
-
 </body>
 
 </html>
