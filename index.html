@@ -384,7 +384,7 @@
 <script>
 
 
-const sections = [
+        const sections = [
     { 
         id: 'savings', 
         name: 'Savings', 
@@ -464,30 +464,6 @@ const sections = [
         `, 
         pageLink: 'mobile.html' 
     },
-
-
-{ 
-        id: 'events', 
-        name: 'Events', 
-        description: `
-            <p>Stay up to date with our upcoming events at Busaiga SACCO. From financial literacy seminars to community engagement programs, 
-            there's always something happening that you can be a part of.</p>
-        `, 
-        pageLink: 'index.html' 
-    }, 
-
-    
-    { 
-        id: 'opportunities', 
-        name: 'Opportunities', 
-        description: `
-            <p>At Busaiga SACCO, we offer opportunities for growth in both employment and business. Whether you're looking for job openings 
-            or seeking investment opportunities, we are here to support your aspirations.</p>
-        `, 
-        pageLink: 'index.html' 
-    },
-    
-
     { 
         id: 'partnership', 
         name: 'Partnership', 
@@ -496,8 +472,26 @@ const sections = [
             opportunities that benefit our members and the community at large.</p>
             <p>Learn more about our partnerships and how we can work together to achieve mutual success.</p>
         `, 
-        pageLink: 'index.html' 
+        pageLink: 'partnership.html' 
     },
+    { 
+        id: 'opportunities', 
+        name: 'Opportunities', 
+        description: `
+            <p>At Busaiga SACCO, we offer opportunities for growth in both employment and business. Whether you're looking for job openings 
+            or seeking investment opportunities, we are here to support your aspirations.</p>
+        `, 
+        pageLink: 'opportunities.html' 
+    },
+    { 
+        id: 'events', 
+        name: 'Events', 
+        description: `
+            <p>Stay up to date with our upcoming events at Busaiga SACCO. From financial literacy seminars to community engagement programs, 
+            there's always something happening that you can be a part of.</p>
+        `, 
+        pageLink: 'events.html' 
+    }
 ];
 
 function toggleSidebar() {
@@ -528,7 +522,11 @@ function handleSearch(event) {
 }
 
 function navigateToPage(pageLink) {
-    window.location.href = pageLink;
+    if (pageLink === 'about.html' || pageLink === 'contact.html' || pageLink === 'mobile.html') {
+        showDialog(sections.find(sec => sec.pageLink === pageLink).description, pageLink);
+    } else {
+        window.location.href = pageLink;
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -545,11 +543,8 @@ document.addEventListener('DOMContentLoaded', () => {
     sidebarLinks.forEach(link => {
         link.addEventListener('click', (event) => {
             event.preventDefault();
-            const sectionId = link.getAttribute('href').replace('.html', '');
-            const section = sections.find(sec => sec.id === sectionId);
-            if (section) {
-                navigateToPage(section.pageLink);
-            }
+            const pageLink = link.getAttribute('href');
+            navigateToPage(pageLink);
         });
     });
 
@@ -559,8 +554,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set up search form
     document.querySelector('form').addEventListener('submit', handleSearch);
 });
-
-
+                        
 </script>
 </body>
 
