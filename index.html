@@ -384,8 +384,8 @@
 
 
   
-
 <script>
+// Array containing section information
 const sections = [
     { id: 'partnership', description: 'Partnerships are the backbone of our growth. Collaborate with us for mutual success.', pageLink: 'partnership.html' },
     { id: 'opportunities', description: 'Explore a range of opportunities to grow your investments with Busaiga SACCO.', pageLink: 'opportunities.html' },
@@ -399,7 +399,7 @@ const sections = [
     { id: 'mobile-payments', description: 'Conveniently pay for your services using mobile payments.', pageLink: 'mobile.html' },
 ];
 
-// Set up section buttons to open dialog boxes
+// Set up section buttons (Learn More) to open dialog boxes
 sections.forEach((section) => {
     const button = document.querySelector(`#${section.id} button`);
     if (button) {
@@ -432,7 +432,7 @@ sidebarLinks.forEach(link => {
 // Set up dialog close button
 document.getElementById('dialog-close').addEventListener('click', closeDialog);
 
-// Set up search form
+// Set up search form functionality
 document.querySelector('form').addEventListener('submit', handleSearch);
 
 // Function to display the dialog box
@@ -473,13 +473,9 @@ function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
     sidebar.classList.toggle('hidden');  // Toggle sidebar visibility
 }
+</script>
 
 
-
-
-
-    
-  </script>
 </body>
 
 </html>
