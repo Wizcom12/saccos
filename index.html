@@ -86,6 +86,29 @@
                 </svg>
             </button>
         </form>
+        <div class="relative">
+            <button class="hidden md:inline-block p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors" onclick="toggleDropdown()">
+                Menu
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+            <!-- Dropdown Menu -->
+            <div id="dropdown" class="absolute right-0 mt-2 bg-white shadow-lg rounded-lg w-64 hidden">
+                <ul class="py-2">
+                    <li><a href="savings.html" class="block px-4 py-2 hover:bg-gray-100">Savings</a></li>
+                    <li><a href="loans.html" class="block px-4 py-2 hover:bg-gray-100">Loans</a></li>
+                    <li><a href="service-centers.html" class="block px-4 py-2 hover:bg-gray-100">Service Centers</a></li>
+                    <li><a href="about.html" class="block px-4 py-2 hover:bg-gray-100">About Us</a></li>
+                    <li><a href="contact.html" class="block px-4 py-2 hover:bg-gray-100">Contact Us</a></li>
+                    <li><a href="gallery.html" class="block px-4 py-2 hover:bg-gray-100">Gallery</a></li>
+                    <li><a href="mobile.html" class="block px-4 py-2 hover:bg-gray-100">Mobile Payments</a></li>
+                    <li><a href="partnership.html" class="block px-4 py-2 hover:bg-gray-100">Partnership</a></li>
+                    <li><a href="opportunities.html" class="block px-4 py-2 hover:bg-gray-100">Opportunities</a></li>
+                    <li><a href="events.html" class="block px-4 py-2 hover:bg-gray-100">Events</a></li>
+                </ul>
+            </div>
+        </div>
         <button class="md:hidden mt-4 md:mt-0" onclick="toggleSidebar()">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
@@ -93,20 +116,6 @@
         </button>
     </div>
 </header>
-
-<!-- Links section for large screens (in columns) -->
-<nav class="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-4 container mx-auto py-4">
-    <a href="savings.html" class="block hover:bg-gray-100 rounded p-2">Savings</a>
-    <a href="loans.html" class="block hover:bg-gray-100 rounded p-2">Loans</a>
-    <a href="service-centers.html" class="block hover:bg-gray-100 rounded p-2">Service Centers</a>
-    <a href="about.html" class="block hover:bg-gray-100 rounded p-2">About Us</a>
-    <a href="contact.html" class="block hover:bg-gray-100 rounded p-2">Contact Us</a>
-    <a href="gallery.html" class="block hover:bg-gray-100 rounded p-2">Gallery</a>
-    <a href="mobile.html" class="block hover:bg-gray-100 rounded p-2">Mobile Payments</a>
-    <a href="partnership.html" class="block hover:bg-gray-100 rounded p-2">Partnership</a>
-    <a href="opportunities.html" class="block hover:bg-gray-100 rounded p-2">Opportunities</a>
-    <a href="events.html" class="block hover:bg-gray-100 rounded p-2">Events</a>
-</nav>
 
 <!-- Sidebar for small screens -->
 <div id="sidebar" class="fixed inset-0 bg-gray-600 bg-opacity-75 z-50 hidden">
@@ -120,7 +129,6 @@
             </button>
         </div>
         <ul class="space-y-2">
-            <!-- Sidebar links for small screens -->
             <li><a href="savings.html" class="block hover:bg-gray-100 rounded p-2">Savings</a></li>
             <li><a href="loans.html" class="block hover:bg-gray-100 rounded p-2">Loans</a></li>
             <li><a href="service-centers.html" class="block hover:bg-gray-100 rounded p-2">Service Centers</a></li>
@@ -134,6 +142,18 @@
         </ul>
     </div>
 </div>
+
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('hidden');
+    }
+
+    function toggleDropdown() {
+        const dropdown = document.getElementById('dropdown');
+        dropdown.classList.toggle('hidden');
+    }
+</script>
 
   
   
