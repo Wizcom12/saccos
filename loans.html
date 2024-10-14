@@ -5,397 +5,586 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BUSAIGA SACCO - Loan Products</title>
+    <title>Loans - Busaiga SACCO</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
-    /* General Reset */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: #333;
-        line-height: 1.6;
-        background-color: #f4f4f4;
-    }
-
-    /* Layout and Container */
-    .container {
-        width: 90%;
-        margin: auto;
-        max-width: 1200px;
-    }
-
-    /* Header Styling */
-    header {
-        background-color: white;
-        color: gold;
-        padding: 1rem 0;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    header .logo {
-        width: 120px;
-        float: left;
-        border-radius: 50%;
-    }
-
-    header nav {
-        float: right;
-    }
-
-    header nav a {
-        color: gold;
-        text-decoration: none;
-        margin-left: 20px;
-        font-weight: bold;
-        font-size: 16px;
-        transition: color 0.3s ease;
-    }
-
-    header nav a:hover, header nav a.active {
-        color: #0275d8;
-    }
-
-    /* Menu Icon for mobile */
-    .menu-icon {
-        display: none;
-        float: right;
-        cursor: pointer;
-        z-index: 1000;
-        margin-right: 15px;
-    }
-
-    .menu-icon .bar {
-        width: 25px;
-        height: 3px;
-        background-color: gold;
-        margin: 5px 0;
-        transition: 0.4s;
-    }
-
-    /* Sidebar Styling */
-    .sidebar {
-        height: 75%;
-        width: 0;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        right: 0;
-        background-color: white;
-        overflow-x: hidden;
-        transition: 0.5s;
-        padding-top: 40px;
-        border-radius: 4px;
-        box-shadow: -2px 0 5px rgba(0,0,0,0.1);
-    }
-
-    .sidebar a {
-        padding: 8px 8px 8px 32px;
-        text-decoration: none;
-        font-size: 20px;
-        color: #ffcc00;
-        display: block;
-        transition: 0.3s;
-    }
-
-    .sidebar a:hover, .sidebar a.active {
-        color: #0275d8;
-    }
-
-    .sidebar .closebtn {
-        position: absolute;
-        top: 0;
-        right: 25px;
-        font-size: 36px;
-        margin-left: 50px;
-    }
-
-    /* Main Section Styling */
-    main {
-        background-color: white;
-        padding: 2rem;
-        margin: 60px 20px;
-        border-radius: 10px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    main h2 {
-        color: #0275d8;
-        margin-bottom: 1rem;
-    }
-
-    main p {
-        font-size: 18px;
-        margin-bottom: 1.5rem;
-    }
-
-    /* Loan Products Styling */
-    .loans-products-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-
-    .loan-product {
-        flex-basis: calc(33.333% - 20px);
-        margin-bottom: 2rem;
-        background-color: #e9ecef;
-        padding: 1rem;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    .loan-product img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 5px;
-        margin-bottom: 1rem;
-    }
-
-    .loan-product h3 {
-        color: #0275d8;
-        margin-bottom: 0.5rem;
-    }
-
-    .loan-product p {
-        font-size: 14px;
-        margin-bottom: 0.5rem;
-    }
-
-    .loan-product .cta {
-        display: inline-block;
-        background-color: #0275d8;
-        color: white;
-        padding: 0.5rem 1rem;
-        text-decoration: none;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
-    }
-
-    .loan-product .cta:hover {
-        background-color: #025aa5;
-    }
-
-    /* Footer Styling */
-    footer {
-        background-color: #0275d8;
-        color: white;
-        padding: 2rem 0;
-        text-align: center;
-        margin-top: 2rem;
-    }
-
-    footer p {
-        margin-bottom: 0.5rem;
-    }
-
-    footer a {
-        color: #ffcc00;
-        text-decoration: none;
-        font-weight: bold;
-        transition: color 0.3s ease;
-    }
-
-    footer a:hover {
-        color: #ffc107;
-    }
-
-    /* Responsive Layout */
-    @media screen and (max-width: 768px) {
-        header nav {
-            display: none;
+        body {
+            background-color: #f3f4f6;
+            font-size: 16px;
         }
 
-        .menu-icon {
-            display: block;
+        @media (min-width: 768px) {
+            body {
+                font-size: 18px;
+            }
         }
 
-        .logo {
-            float: none;
-            display: block;
-            margin: auto;
+        #sidebar {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
         }
 
-        main {
-            padding: 1rem;
+        #sidebar.show {
+            transform: translateX(0);
         }
 
-        .container {
+        .sidebar-content {
+            margin-top: 80px; /* Increased to prevent overlap with header */
+        }
+
+        #dialog {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        @media (min-width: 768px) {
+            #dialog-content {
+                max-width: 80%;
+                width: 800px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .sections-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        .menu-link {
+            font-size: 1.1rem;
+            padding: 0.75rem 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .menu-link {
+                font-size: 1.2rem;
+            }
+        }
+
+        .progress-bar-container {
             width: 100%;
+            background-color: green;
+            padding: 10px;
+            margin-bottom: 20px;
         }
 
-        .loan-product {
-            flex-basis: 100%;
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #333;
+            position: relative;
         }
-    }
+
+        .progress {
+            height: 100%;
+            background-color: #4caf50;
+        }
+
+        .progress-number {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 12px;
+        }
+
+        h3 { color: blue; }
+        footer h3 { color: white; }
+
+        /* New styles for dropdown */
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Larger images for sections */
+        .section-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .section-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+
     </style>
 </head>
-<body>
+<body class="bg-gray-100">
+    <!-- Header would go here, similar to the homepage -->
 
-    <header>
-        <div class="container">
-            <img src="logo.jpg" alt="BUSAIGA SACCO Logo" class="logo">
-            <div class="menu-icon" onclick="toggleSidebar()">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
+    <header class="bg-white shadow-md fixed w-full top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img style="width:100px; height:100px; border-radius:50%" src="logo.jpg" alt="Busaiga SACCO Logo" class="mr-2">
+                <h1 class="text-2xl font-bold text-blue-600">Busaiga SACCO</h1>
             </div>
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="about.html">About Us</a>
-                <a href="savings.html">Savings Products</a>
-                <a href="opportunities .html" class="active">Opportunities </a>
-                <a href="events.html">Events</a>
-                
-                             <a href="service-centers.html">Service Centers</a>  
-                
-                
-                <a href="mobile.html">Mobile Transactions</a>
-                <a href="contact.html">Contact Us</a>
- 
- 
-                <a href="gallery.html">Gallery </a>
+            <nav class="hidden lg:flex items-center space-x-4">
+                <div class="dropdown inline-block relative">
+                    <button class="text-gray-700 font-semibold py-2 px-4 rounded inline-flex items-center">
+                        <span class="mr-1">Services</span>
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
+                    </button>
+                    <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
+                        <li><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="savings.html">Savings</a></li>
+                        <li><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="loans.html">Loans</a></li>
+                        <li><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="service-centers.html">Service Centers</a></li>
+
+                        <li><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="mobile.html">Mobile-Payments</a></li>
+                        <li><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="contact.html">Contact Us</a></li>
+                        <li><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="gallery.html">Gallery</a></li>
+
+                        <li><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#Opportunities">Opportunities</a></li>
+                        <li><a class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#Partnerships">Partnership</a></li>
+                        <li><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" href="#events">Events</a></li>
+                    </ul>
+                </div>
+                <a href="about.html" class="text-gray-700 hover:text-blue-600">About Us</a>
+                <a href="contact.html" class="text-gray-700 hover:text-blue-600">Contact Us</a>
             </nav>
+            <button class="lg:hidden" onclick="toggleSidebar()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+            <form class="hidden lg:flex items-center space-x-2" onsubmit="handleSearch(event)">
+                <input type="text" placeholder="Search..." class="px-4 py-2 border rounded-lg" id="search-input">
+                <button type="submit" class="p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </button>
+            </form>
         </div>
     </header>
 
-    <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="toggleSidebar()">&times;</a>
-        <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="savings.html">Savings Products</a>
-        <a href="opportunities.html" class="active">Opportunities </a>
-        <a href="service-centers.html">Service Centers</a>
-        
-         <a href="events.html">Events </a>
-        
-        <a href="mobile.html">Mobile Transactions</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="gallery.html">Gallery</a>
+    <!-- Sidebar -->
+    <div id="sidebar" class="fixed inset-0 bg-gray-600 bg-opacity-75 z-40">
+        <div class="sidebar-content bg-white h-full w-64 p-4 overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-bold">Menu</h2>
+                <button onclick="toggleSidebar()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <ul class="space-y-2">
+                <li><a href="savings.html" class="menu-link block hover:bg-gray-100 rounded">Savings</a></li>
+                <li><a href="loans.html" class="menu-link block hover:bg-gray-100 rounded">Loans</a></li>
+                <li><a href="service-centers.html" class="menu-link block hover:bg-gray-100 rounded">Service Centers</a></li>
+                <li><a href="about.html" class="menu-link block hover:bg-gray-100 rounded">About Us</a></li>
+                <li><a href="contact.html" class="menu-link block hover:bg-gray-100 rounded">Contact Us</a></li>
+                <li><a href="gallery.html" class="menu-link block hover:bg-gray-100 rounded">Gallery</a></li>
+                <li><a href="mobile.html" class="menu-link block hover:bg-gray-100 rounded">Mobile Payments</a></li>
+                <li><a href="#partnership" class="menu-link block hover:bg-gray-100 rounded">Partnership</a></li>
+                <li><a href="#opportunities" class="menu-link block hover:bg-gray-100 rounded">Opportunities</a></li>
+                <li><a href="#events" class="menu-link block hover:bg-gray-100 rounded">Events</a></li>
+            </ul>
+        </div>
     </div>
 
-    <main>
-        <section class="loans">
-            <div class="container">
-                <h2> BUSAIGA SACCO</h2>
-                <h2>Loan Products</h2>
-                <p> Explore our loan products and choose the one that suits your needs. Fast and Urgent! </p>
-            </div>
-        </section>
 
-        <div class="container loans-products-container">
-            <div class="loan-product">
-                <img src="business.jpg" alt="Loan Product 1">
-                <h3>Business Loan</h3>
-                <p>Amount: UGX 100,000 - 30,000,000</p>
-                <p>Requirements: Business must be operational for at least 12 months</p>
-                <p>Savings Deposit: At least 15% of the loan amount</p>
-                <p>Repayment Period: 1 - 24 months</p>
-                <a href="#" class="cta">More</a>
-            </div>
+<main class="container mx-auto px-4 py-8">
+    <!-- Introduction Section -->
+    <section class="bg-green-600 text-white py-12 mb-8 rounded-lg">
+        <div class="text-center">
+            <h2 class="text-3xl font-bold mb-4">BUSAIGA SACCO</h2>
+            <h2 class="text-3xl font-bold mb-4">Loan Products</h2>
+            <p class="text-xl">Explore our loan products and choose the one that suits your needs. Fast and Urgent!</p>
+        </div>
+    </section>
 
-            <div class="loan-product">
-                <img src="school.jpg" alt="Loan Product 2">
-                <h3>School Fees Loan</h3>
-                <p>Amount: UGX 100,000 - 4,000,000</p>
-                <p>Requirements: Admission letter, school payslips, fees bills, student's school ID</p>
-                <p>Repayment Period: 1 - 6 months</p>
-                <a href="#" class="cta">More</a>
-            </div>
-
-            <div class="loan-product">
-                <img src="animal.jpg" alt="Loan Product 3">
-                <h3>Agriculture Loan</h3>
-                <p>Amount: UGX 100,000 - 10,000,000</p>
-                <p>Repayment Period: 1 - 12 months</p>
-                <a href="#" class="cta">More</a>
-            </div>
-
-            <div class="loan-product">
-                <img src="home.jpg" alt="Loan Product 4">
-                <h3>Home Improvement Loan</h3>
-                <p>Amount: UGX 500,000 - 30,000,000</p>
-                <p>Repayment Period: 1 - 24 months</p>
-                <a href="#" class="cta">More</a>
-            </div>
-
-            <div class="loan-product">
-                <img src="animals.jpg" alt="Loan Product 5">
-                <h3>Dairy & Horticulture Loan</h3>
-                <p>Amount: UGX 100,000 - 10,000,000</p>
-                <p>Repayment Period: 1 - 24 months</p>
-                <p>Savings Deposit: At least 10% of the loan amount</p>
-                <a href="#" class="cta">More</a>
-            </div>
-
-            <div class="loan-product">
-                <img src="boda3.jpg" alt="Loan Product 6">
-                <h3>Motorcycle Loan</h3>
-                <p>Amount: UGX 2,000,000 - 8,800,000</p>
-                <p>Repayment Schedule: Weekly payments</p>
-                <p>Initial Deposit: UGX 1,000,000</p>
-                <p>Weekly Repayments: UGX 67,000</p>
-                <a href="#" class="cta">More</a>
-            </div>
-
-            <div class="loan-product">
-                <img src="62.jpg" alt="Loan Product 7">
-                <h3>Asset Acquisition Loan</h3>
-                <p>Amount: UGX 1,000,000 - 30,000,000</p>
-                <p>Requirements: Seller agreement in case of land, plot, or vehicle</p>
-                <p>Repayment Period: 1 - 24 months</p>
-                <a href="#" class="cta">More</a>
-            </div>
-
-            <div class="loan-product">
-                <img src="salary.jpg" alt="Loan Product 8">
-                <h3>Salary Loan</h3>
-                <p>Amount: UGX 200,000 - 10,000,000</p>
-                <p>Requirements: Employment contract, payslips for the last three months</p>
-                <p>Repayment Period: 1 - 12 months</p>
-                <a href="#" class="cta">More</a>
-            </div>
-
-            <div class="loan-product">
-                <img src="emergency.jpg" alt="Loan Product 9">
-                <h3>Emergency Loan</h3>
-                <p>Amount: UGX 100,000 - 2,000,000</p>
-                <p>Requirements: Valid emergency, savings of at least 10% of the loan amount</p>
-                <p>Repayment Period: 1 - 6 months</p>
-                <a href="#" class="cta">More</a>
+    <!-- Loans Products Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Business Loan -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <img src="business.jpg" alt="Business Loan" class="w-full h-48 object-cover">
+            <div class="p-6">
+                <h3 class="text-2xl font-bold mb-2 text-green-600">Business Loan</h3>
+                <p class="text-gray-700">Amount: UGX 100,000 - 30,000,000</p>
+                <p class="text-gray-700">Requirements: Business must be operational for at least 12 months</p>
+                <p class="text-gray-700">Savings Deposit: At least 15% of the loan amount</p>
+                <p class="text-gray-700">Repayment Period: 1 - 24 months</p>
+                <button onclick="showDialog('business-loan')" class="mt-4 px-4 py-2 bg-gray-800 text-white rounded hover:bg-green-600 transition-colors">
+                    Show More
+                </button>
             </div>
         </div>
-    </main>
 
-    <footer>
-        <div class="container">
-            <p>Location: P.O. Box 980, Harugongo Subcounty, Kabarole District</p>
-            <p>&copy; 2024 BUSAIGA SACCO. All rights reserved.</p>
-            <p>Powered by <a href="https://wa.me/+" target="_blank">Busaiga SACCO</a></p> 
-            <p>Developed by <a href="https://wa.me/+256779491167" target="_blank">IG Digital Solutions/Wizcom</a></p>
+        <!-- School Fees Loan -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <img src="school.jpg" alt="School Fees Loan" class="w-full h-48 object-cover">
+            <div class="p-6">
+                <h3 class="text-2xl font-bold mb-2 text-green-600">School Fees Loan</h3>
+                <p class="text-gray-700">Amount: UGX 100,000 - 4,000,000</p>
+                <p class="text-gray-700">Requirements: Admission letter, school payslips, fees bills, student's school ID</p>
+                <p class="text-gray-700">Repayment Period: 1 - 6 months</p>
+                <button onclick="showDialog('school-loan')" class="mt-4 px-4 py-2 bg-gray-800 text-white rounded hover:bg-green-600 transition-colors">
+                    Show More
+                </button>
+            </div>
         </div>
-    </footer>
 
-    <script>
-    // Toggle Sidebar
-    function toggleSidebar() {
-        var sidebar = document.getElementById("mySidebar");
-        var menuIcon = document.querySelector('.menu-icon');
-        if (sidebar.style.width === "250px") {
-            sidebar.style.width = "0";
-            menuIcon.classList.remove("change");
-        } else {
-            sidebar.style.width = "250px";
-            menuIcon.classList.add("change");
-        }
+        <!-- Agriculture Loan -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <img src="animal.jpg" alt="Agriculture Loan" class="w-full h-48 object-cover">
+            <div class="p-6">
+                <h3 class="text-2xl font-bold mb-2 text-green-600">Agriculture Loan</h3>
+                <p class="text-gray-700">Amount: UGX 100,000 - 10,000,000</p>
+                <p class="text-gray-700">Repayment Period: 1 - 12 months</p>
+                <button onclick="showDialog('agriculture-loan')" class="mt-4 px-4 py-2 bg-gray-800 text-white rounded hover:bg-green-600 transition-colors">
+                    Show More
+                </button>
+            </div>
+        </div>
+
+        <!-- Home Improvement Loan -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <img src="home.jpg" alt="Home Improvement Loan" class="w-full h-48 object-cover">
+            <div class="p-6">
+                <h3 class="text-2xl font-bold mb-2 text-green-600">Home Improvement Loan</h3>
+                <p class="text-gray-700">Amount: UGX 500,000 - 30,000,000</p>
+                <p class="text-gray-700">Repayment Period: 1 - 24 months</p>
+                <button onclick="showDialog('home-improvement-loan')" class="mt-4 px-4 py-2 bg-gray-800 text-white rounded hover:bg-green-600 transition-colors">
+                    Show More
+                </button>
+            </div>
+        </div>
+
+        <!-- Dairy & Horticulture Loan -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <img src="animals.jpg" alt="Dairy & Horticulture Loan" class="w-full h-48 object-cover">
+            <div class="p-6">
+                <h3 class="text-2xl font-bold mb-2 text-green-600">Dairy & Horticulture Loan</h3>
+                <p class="text-gray-700">Amount: UGX 100,000 - 10,000,000</p>
+                <p class="text-gray-700">Repayment Period: 1 - 24 months</p>
+                <p class="text-gray-700">Savings Deposit: At least 10% of the loan amount</p>
+                <button onclick="showDialog('dairy-horticulture-loan')" class="mt-4 px-4 py-2 bg-gray-800 text-white rounded hover:bg-green-600 transition-colors">
+                    Show More
+                </button>
+            </div>
+        </div>
+
+        <!-- Motorcycle Loan -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <img src="boda3.jpg" alt="Motorcycle Loan" class="w-full h-48 object-cover">
+            <div class="p-6">
+                <h3 class="text-2xl font-bold mb-2 text-green-600">Motorcycle Loan</h3>
+                <p class="text-gray-700">Amount: UGX 2,000,000 - 8,800,000</p>
+                <p class="text-gray-700">Repayment Schedule: Weekly payments</p>
+                <p class="text-gray-700">Initial Deposit: UGX 1,000,000</p>
+                <p class="text-gray-700">Weekly Repayments: UGX 67,000</p>
+                <button onclick="showDialog('motorcycle-loan')" class="mt-4 px-4 py-2 bg-gray-800 text-white rounded hover:bg-green-600 transition-colors">
+                    Show More
+                </button>
+            </div>
+        </div>
+
+        <!-- Asset Acquisition Loan -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <img src="62.jpg" alt="Asset Acquisition Loan" class="w-full h-48 object-cover">
+            <div class="p-6">
+                <h3 class="text-2xl font-bold mb-2 text-green-600">Asset Acquisition Loan</h3>
+                <p class="text-gray-700">Amount: UGX 1,000,000 - 30,000,000</p>
+                <p class="text-gray-700">Requirements: Seller agreement in case of land, plot, or vehicle</p>
+                <p class="text-gray-700">Repayment Period: 1 - 24 months</p>
+                <button onclick="showDialog('asset-acquisition-loan')" class="mt-4 px-4 py-2 bg-gray-800 text-white rounded hover:bg-green-600 transition-colors">
+                    Show More
+                </button>
+            </div>
+        </div>
+
+        <!-- Salary Loan -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <img src="salary.jpg" alt="Salary Loan" class="w-full h-48 object-cover">
+            <div class="p-6">
+                <h3 class="text-2xl font-bold mb-2 text-green-600">Salary Loan</h3>
+                <p class="text-gray-700">Amount: UGX 200,000 - 10,000,000</p>
+                <p class="text-gray-700">Requirements: Employment contract, payslips for the last three months</p>
+                <p class="text-gray-700">Repayment Period: 1 - 12 months</p>
+                <button onclick="showDialog('salary-loan')" class="mt-4 px-4 py-2 bg-gray-800 text-white rounded hover:bg-green-600 transition-colors">
+                    Show More
+                </button>
+            </div>
+        </div>
+
+        <!-- Emergency Loan -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <img src="emergency.jpg" alt="Emergency Loan" class="w-full h-48 object-cover">
+            <div class="p-6">
+                <h3 class="text-2xl font-bold mb-2 text-green-600">Emergency Loan</h3>
+                <p class="text-gray-700">Amount: UGX 100,000 - 2,000,000</p>
+                <p class="text-gray-700">Requirements: Valid emergency, savings of at least 10% of the loan amount</p>
+                <p class="text-gray-700">Repayment Period: 1 - 6 months</p>
+                <button onclick="showDialog('emergency-loan')" class="mt-4 px-4 py-2 bg-gray-800 text-white rounded hover:bg-green-600 transition-colors">
+                    Show More
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loan Detail Dialogs -->
+    <div id="loan-details" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden">
+        <div class="bg-white rounded-lg p-6 w-11/12 md:w-1/2 lg:w-1/3">
+            <h2 id="loan-title" class="text-2xl font-bold mb-4 text-green-600"></h2>
+            <p id="loan-description" class="text-gray-700 mb-4"></p>
+            <button onclick="closeDialog()" class="mt-4 px-4 py-2 bg-gray-800 text-white rounded hover:bg-green-600 transition-colors">Close</button>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+            <h3 class="font-semibold text-lg mb-4">About Busaiga SACCO</h3>
+            <p>Busaiga SACCO is dedicated to empowering individuals through financial growth and development.</p>
+        </div>
+        <div>
+            <h3 class="font-semibold text-lg mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+                <li><a href="savings.html" class="hover:text-blue-300 transition-colors">Savings</a></li>
+                <li><a href="loans.html" class="hover:text-blue-300 transition-colors">Loans</a></li>
+                <li><a href="service-centers.html" class="hover:text-blue-300 transition-colors">Service Centers</a></li>
+                <li><a href="about.html" class="hover:text-blue-300 transition-colors">About Us</a></li>
+                <li><a href="contact.html" class="hover:text-blue-300 transition-colors">Contact Us</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="font-semibold text-lg mb-4">Contact Us</h3>
+            <p>Email: busaigasacco@gmail.com</p>
+            <p>Phone: 0393254703</p>
+            <p>Address: P.O.Box 980, Harugongo, Kabarole District</p>
+        </div>
+        <div>
+            <h3 class="font-semibold text-lg mb-4">Follow Us</h3>
+            <div class="flex space-x-4">
+                <a href="#" class="hover:text-blue-300 transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <a href="#" class="hover:text-blue-300 transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="mt-8 text-center border-t border-gray-700 pt-8">
+        <p>&copy; 2024 Busaiga SACCO. All Rights Reserved.</p>
+        <p class="mt-2">Designed by: Wizcom Developer.</p>
+    </div>
+</footer>
+
+
+<!-- Dialog box template -->
+<div id="dialog" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+    <div id="dialog-content" class="bg-white p-8 w-full max-w-lg rounded-lg relative">
+        <button onclick="closeDialog()" class="absolute top-4 right-4 text-gray-600 hover:text-gray-800">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <div id="dialog-description" class="mb-4 text-lg"></div>
+    </div>
+</div>
+
+    
+<script>
+
+
+const loanProducts = {
+    'business-loan': {
+        title: 'Business Loan',
+        description: `
+            <h3 class="text-2xl font-bold mb-4">Business Loan</h3>
+            <p class="mb-4">Our Business Loan is designed to support your business growth with flexible terms. Key features include:</p>
+            <ul class="list-disc list-inside mb-4">
+                <li>Amount: UGX 100,000 - 30,000,000</li>
+                <li>Requirements: Business must be operational for at least 12 months</li>
+                <li>Savings Deposit: At least 15% of the loan amount</li>
+                <li>Repayment Period: 1 - 24 months</li>
+            </ul>
+            <p>Perfect for entrepreneurs looking to expand their business operations.</p>
+        `
+    },
+    'school-fees-loan': {
+        title: 'School Fees Loan',
+        description: `
+            <h3 class="text-2xl font-bold mb-4">School Fees Loan</h3>
+            <p class="mb-4">Our School Fees Loan helps you cover educational expenses. Key features include:</p>
+            <ul class="list-disc list-inside mb-4">
+                <li>Amount: UGX 100,000 - 4,000,000</li>
+                <li>Requirements: Admission letter, school payslips, fees bills, student's school ID</li>
+                <li>Repayment Period: 1 - 6 months</li>
+            </ul>
+            <p>Ensure your child's education continues uninterrupted.</p>
+        `
+    },
+    'agriculture-loan': {
+        title: 'Agriculture Loan',
+        description: `
+            <h3 class="text-2xl font-bold mb-4">Agriculture Loan</h3>
+            <p class="mb-4">Our Agriculture Loan supports farmers with flexible terms. Key features include:</p>
+            <ul class="list-disc list-inside mb-4">
+                <li>Amount: UGX 100,000 - 10,000,000</li>
+                <li>Repayment Period: 1 - 12 months</li>
+            </ul>
+            <p>Perfect for agricultural investments and development.</p>
+        `
+    },
+    'home-improvement-loan': {
+        title: 'Home Improvement Loan',
+        description: `
+            <h3 class="text-2xl font-bold mb-4">Home Improvement Loan</h3>
+            <p class="mb-4">Our Home Improvement Loan provides the funds you need to enhance your living space. Key features include:</p>
+            <ul class="list-disc list-inside mb-4">
+                <li>Amount: UGX 500,000 - 30,000,000</li>
+                <li>Repayment Period: 1 - 24 months</li>
+            </ul>
+            <p>Make your dream home a reality with our support.</p>
+        `
+    },
+    'dairy-horticulture-loan': {
+        title: 'Dairy & Horticulture Loan',
+        description: `
+            <h3 class="text-2xl font-bold mb-4">Dairy & Horticulture Loan</h3>
+            <p class="mb-4">Our Dairy & Horticulture Loan helps you invest in agricultural projects. Key features include:</p>
+            <ul class="list-disc list-inside mb-4">
+                <li>Amount: UGX 100,000 - 10,000,000</li>
+                <li>Repayment Period: 1 - 24 months</li>
+                <li>Savings Deposit: At least 10% of the loan amount</li>
+            </ul>
+            <p>Grow your agricultural business with confidence.</p>
+        `
+    },
+    'motorcycle-loan': {
+        title: 'Motorcycle Loan',
+        description: `
+            <h3 class="text-2xl font-bold mb-4">Motorcycle Loan</h3>
+            <p class="mb-4">Our Motorcycle Loan helps you acquire a motorcycle with flexible repayment options. Key features include:</p>
+            <ul class="list-disc list-inside mb-4">
+                <li>Amount: UGX 2,000,000 - 8,800,000</li>
+                <li>Initial Deposit: UGX 1,000,000</li>
+                <li>Weekly Repayments: UGX 67,000</li>
+                <li>Repayment Schedule: Weekly payments</li>
+            </ul>
+            <p>Ride away with your new motorcycle today!</p>
+        `
+    },
+    'asset-acquisition-loan': {
+        title: 'Asset Acquisition Loan',
+        description: `
+            <h3 class="text-2xl font-bold mb-4">Asset Acquisition Loan</h3>
+            <p class="mb-4">Our Asset Acquisition Loan helps you finance the purchase of assets. Key features include:</p>
+            <ul class="list-disc list-inside mb-4">
+                <li>Amount: UGX 1,000,000 - 30,000,000</li>
+                <li>Requirements: Seller agreement in case of land, plot, or vehicle</li>
+                <li>Repayment Period: 1 - 24 months</li>
+            </ul>
+            <p>Secure your future with our asset financing options.</p>
+        `
+    },
+    'salary-loan': {
+        title: 'Salary Loan',
+        description: `
+            <h3 class="text-2xl font-bold mb-4">Salary Loan</h3>
+            <p class="mb-4">Our Salary Loan provides quick access to funds based on your salary. Key features include:</p>
+            <ul class="list-disc list-inside mb-4">
+                <li>Amount: UGX 200,000 - 10,000,000</li>
+                <li>Requirements: Employment contract, payslips for the last three months</li>
+                <li>Repayment Period: 1 - 12 months</li>
+            </ul>
+            <p>Get the financial support you need with ease.</p>
+        `
+    },
+    'emergency-loan': {
+        title: 'Emergency Loan',
+        description: `
+            <h3 class="text-2xl font-bold mb-4">Emergency Loan</h3>
+            <p class="mb-4">Our Emergency Loan offers quick funds for unforeseen circumstances. Key features include:</p>
+            <ul class="list-disc list-inside mb-4">
+                <li>Amount: UGX 100,000 - 2,000,000</li>
+                <li>Requirements: Valid emergency, savings of at least 10% of the loan amount</li>
+                <li>Repayment Period: 1 - 6 months</li>
+            </ul>
+            <p>Be prepared for life's unexpected moments.</p>
+        `
     }
-    </script>
+};
+
+function showDialog(productId) {
+    const dialog = document.getElementById('dialog');
+    const dialogDescription = document.getElementById('dialog-description');
+    
+    dialogDescription.innerHTML = loanProducts[productId].description;
+    dialog.classList.remove('hidden');
+}
+
+function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('show');
+}
+
+// The existing closeDialog function remains the same
+function closeDialog() {
+    const dialog = document.getElementById('dialog');
+    dialog.classList.add('hidden');
+}
+
+// Event listeners for closing the dialog and handling the escape key remain unchanged
+
+document.getElementById('dialog').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeDialog();
+    }
+});
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeDialog();
+    }
+});
+
+ // Search functionality
+
+ function handleSearch(event) {
+    event.preventDefault();
+    const query = document.getElementById('search-input').value.toLowerCase();
+    
+    const sections = [
+        { name: 'Business Loan', id: 'business-loan' },
+        { name: 'School Fees Loan', id: 'school-fees-loan' },
+        { name: 'Agriculture Loan', id: 'agriculture-loan' },
+        { name: 'Home Improvement Loan', id: 'home-improvement-loan' },
+        { name: 'Dairy & Horticulture Loan', id: 'dairy-horticulture-loan' },
+        { name: 'Motorcycle Loan', id: 'motorcycle-loan' },
+        { name: 'Asset Acquisition Loan', id: 'asset-acquisition-loan' },
+        { name: 'Salary Loan', id: 'salary-loan' },
+        { name: 'Emergency Loan', id: 'emergency-loan' }
+    ];
+
+    const matchedSection = sections.find(section => section.name.toLowerCase().includes(query));
+
+    if (matchedSection) {
+        showDialog(matchedSection.id);
+    } else {
+        alert('No matching loan product found. Please try another search term.');
+    }
+}
+ 
+
+
+
+</script>
+
 </body>
 </html>
-
-```
-
